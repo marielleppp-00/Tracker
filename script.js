@@ -78,87 +78,119 @@ const foods = [
 ========================================== */
 
 const workouts = {
+
     Monday: {
+
         title: "Chest + Triceps",
+
         groups: [
             {
                 name: "Chest",
+
                 exercises: [
                     "Chest Press",
                     "Close Grip Press",
                     "Chest Flys",
                     "Incline Chest Press"
                 ],
-                guide: "1 warm-up set | 2 sets to failure"
+
+                guide:
+                    "1 warm-up set | 2 sets to failure"
             },
+
             {
                 name: "Triceps",
+
                 exercises: [
                     "Cable Pushdown",
                     "Overhead Rope",
                     "Reverse Grip Pushdown"
                 ],
-                guide: "1 warm-up set | 2 sets to failure"
+
+                guide:
+                    "1 warm-up set | 2 sets to failure"
             }
         ]
     },
 
+
     Wednesday: {
+
         title: "Back + Biceps",
+
         groups: [
             {
                 name: "Back",
+
                 exercises: [
                     "Lat Pull Wide Grip",
                     "Lat Push Down",
                     "Barbell Rows Closed and Wide",
                     "Face Pulls"
                 ],
-                guide: "1 warm-up set | 2 sets to failure"
+
+                guide:
+                    "1 warm-up set | 2 sets to failure"
             },
+
             {
                 name: "Biceps",
+
                 exercises: [
                     "Biceps Curls",
                     "Incline Bench",
                     "Hammer Curls",
                     "Incline Bicep Curls"
                 ],
-                guide: "1 warm-up set | 2 sets to failure"
+
+                guide:
+                    "1 warm-up set | 2 sets to failure"
             }
         ]
     },
 
+
     Friday: {
+
         title: "Shoulder + Core",
+
         groups: [
             {
                 name: "Shoulder",
+
                 exercises: [
                     "Dumbbell Press",
                     "Shoulder Press",
                     "Front Raises",
                     "Lateral Raises"
                 ],
+
                 guide: "3 × 12"
             },
+
             {
                 name: "Core",
+
                 exercises: [
                     "Cable Crunch",
                     "T-Ups",
                     "Hang Leg Raises"
                 ],
+
                 guide: "3 × 12"
             }
         ]
     },
 
+
     Saturday: {
+
         title: "Legs",
+
         groups: [
             {
                 name: "Legs",
+
                 exercises: [
                     "Walking / In Place Squats",
                     "Hip Thrust",
@@ -167,6 +199,7 @@ const workouts = {
                     "Reverse Quad",
                     "Quad Extensions"
                 ],
+
                 guide: "3 × 12"
             }
         ]
@@ -178,78 +211,172 @@ const workouts = {
    ELEMENT HELPERS
 ========================================== */
 
-const $ = id => document.getElementById(id);
+const $ =
+    id =>
+        document.getElementById(id);
 
 
 /* ==========================================
    ELEMENTS
 ========================================== */
 
-const currentDate = $("currentDate");
-const weekRange = $("weekRange");
+const currentDate =
+    $("currentDate");
 
-const todayCalories = $("todayCalories");
-const dailyTargetDisplay = $("dailyTargetDisplay");
-const dailyTargetInput = $("dailyTargetInput");
-const saveDailyTargetBtn = $("saveDailyTargetBtn");
-const dailyProgress = $("dailyProgress");
-const dailyStatus = $("dailyStatus");
-
-const weeklyTargetDisplay = $("weeklyTargetDisplay");
-const weeklyTargetInput = $("weeklyTargetInput");
-const saveWeeklyTargetBtn = $("saveWeeklyTargetBtn");
-const weeklyCalories = $("weeklyCalories");
-const weeklyDifference = $("weeklyDifference");
-
-const foodSelect = $("foodSelect");
-const foodQuantity = $("foodQuantity");
-const foodInfo = $("foodInfo");
-const foodServing = $("foodServing");
-const foodCalories = $("foodCalories");
-const foodProtein = $("foodProtein");
-const addPresetBtn = $("addPresetBtn");
-
-const customFoodName = $("customFoodName");
-const caloriesPerServing = $("caloriesPerServing");
-const servingAmount = $("servingAmount");
-const calculatedCalories = $("calculatedCalories");
-const addCalculatedBtn = $("addCalculatedBtn");
-
-const quickFoodName = $("quickFoodName");
-const quickCalories = $("quickCalories");
-const quickAddBtn = $("quickAddBtn");
-
-const foodLog = $("foodLog");
-const todayLogTotal = $("todayLogTotal");
-
-const workoutDay = $("workoutDay");
-const workoutDate = $("workoutDate");
-const workoutContent = $("workoutContent");
-
-const showWorkoutBtn = $("showWorkoutBtn");
-const closeWorkoutBtn = $("closeWorkoutBtn");
-const workoutModal = $("workoutModal");
-const workoutModalBackdrop = $("workoutModalBackdrop");
+const weekRange =
+    $("weekRange");
 
 
+const todayCalories =
+    $("todayCalories");
 
-const weekDays = $("weekDays");
-const summaryConsumed = $("summaryConsumed");
-const summaryTarget = $("summaryTarget");
-const summaryDifference = $("summaryDifference");
+const dailyTargetDisplay =
+    $("dailyTargetDisplay");
 
-const archiveCount = $("archiveCount");
-const exportBtn = $("exportBtn");
+const dailyTargetInput =
+    $("dailyTargetInput");
 
-/* NEW ELEMENTS */
+const saveDailyTargetBtn =
+    $("saveDailyTargetBtn");
 
-const currentWeightDisplay = $("currentWeightDisplay");
-const weightInput = $("weightInput");
-const saveWeightBtn = $("saveWeightBtn");
-const weightUpdated = $("weightUpdated");
+const dailyProgress =
+    $("dailyProgress");
 
-const resetWeekBtn = $("resetWeekBtn");
-const resetMessage = $("resetMessage");
+const dailyStatus =
+    $("dailyStatus");
+
+
+const weeklyTargetDisplay =
+    $("weeklyTargetDisplay");
+
+const weeklyTargetInput =
+    $("weeklyTargetInput");
+
+const saveWeeklyTargetBtn =
+    $("saveWeeklyTargetBtn");
+
+const weeklyCalories =
+    $("weeklyCalories");
+
+const weeklyDifference =
+    $("weeklyDifference");
+
+
+const foodSelect =
+    $("foodSelect");
+
+const foodQuantity =
+    $("foodQuantity");
+
+const foodInfo =
+    $("foodInfo");
+
+const foodServing =
+    $("foodServing");
+
+const foodCalories =
+    $("foodCalories");
+
+const foodProtein =
+    $("foodProtein");
+
+const addPresetBtn =
+    $("addPresetBtn");
+
+
+const customFoodName =
+    $("customFoodName");
+
+const caloriesPerServing =
+    $("caloriesPerServing");
+
+const servingAmount =
+    $("servingAmount");
+
+const calculatedCalories =
+    $("calculatedCalories");
+
+const addCalculatedBtn =
+    $("addCalculatedBtn");
+
+
+const quickFoodName =
+    $("quickFoodName");
+
+const quickCalories =
+    $("quickCalories");
+
+const quickAddBtn =
+    $("quickAddBtn");
+
+
+const foodLog =
+    $("foodLog");
+
+const todayLogTotal =
+    $("todayLogTotal");
+
+
+const workoutDay =
+    $("workoutDay");
+
+const workoutDate =
+    $("workoutDate");
+
+const workoutContent =
+    $("workoutContent");
+
+const showWorkoutBtn =
+    $("showWorkoutBtn");
+
+const closeWorkoutBtn =
+    $("closeWorkoutBtn");
+
+const workoutModal =
+    $("workoutModal");
+
+const workoutModalBackdrop =
+    $("workoutModalBackdrop");
+
+
+const weekDays =
+    $("weekDays");
+
+const summaryConsumed =
+    $("summaryConsumed");
+
+const summaryTarget =
+    $("summaryTarget");
+
+const summaryDifference =
+    $("summaryDifference");
+
+
+const archiveCount =
+    $("archiveCount");
+
+const exportBtn =
+    $("exportBtn");
+
+
+const currentWeightDisplay =
+    $("currentWeightDisplay");
+
+const weightInput =
+    $("weightInput");
+
+const saveWeightBtn =
+    $("saveWeightBtn");
+
+const weightUpdated =
+    $("weightUpdated");
+
+
+const resetWeekBtn =
+    $("resetWeekBtn");
+
+const resetMessage =
+    $("resetMessage");
 
 
 /* ==========================================
@@ -257,11 +384,17 @@ const resetMessage = $("resetMessage");
 ========================================== */
 
 function defaultDatabase() {
+
     return {
+
         settings: {
+
             dailyTarget: 0,
+
             weeklyTarget: 0,
+
             currentWeight: 0
+
         },
 
         days: {},
@@ -269,7 +402,9 @@ function defaultDatabase() {
         weightHistory: [],
 
         archivedWeeks: []
+
     };
+
 }
 
 
@@ -278,58 +413,101 @@ function defaultDatabase() {
 ========================================== */
 
 function loadDatabase() {
+
     try {
-        const stored = localStorage.getItem(STORAGE_KEY);
+
+        const stored =
+            localStorage.getItem(
+                STORAGE_KEY
+            );
+
 
         if (!stored) {
+
             return defaultDatabase();
+
         }
 
-        const parsed = JSON.parse(stored);
+
+        const parsed =
+            JSON.parse(stored);
+
 
         return {
+
             settings: {
+
                 dailyTarget:
-                    Number(parsed.settings?.dailyTarget) || 0,
+                    Number(
+                        parsed.settings
+                            ?.dailyTarget
+                    ) || 0,
 
                 weeklyTarget:
-                    Number(parsed.settings?.weeklyTarget) || 0,
+                    Number(
+                        parsed.settings
+                            ?.weeklyTarget
+                    ) || 0,
 
                 currentWeight:
-                    Number(parsed.settings?.currentWeight) || 0
+                    Number(
+                        parsed.settings
+                            ?.currentWeight
+                    ) || 0
+
             },
+
 
             days:
                 parsed.days || {},
 
+
             weightHistory:
-                Array.isArray(parsed.weightHistory)
+                Array.isArray(
+                    parsed.weightHistory
+                )
                     ? parsed.weightHistory
                     : [],
 
+
             archivedWeeks:
-                Array.isArray(parsed.archivedWeeks)
+                Array.isArray(
+                    parsed.archivedWeeks
+                )
                     ? parsed.archivedWeeks
                     : []
+
         };
+
     }
 
     catch (error) {
+
         console.error(
             "Could not load tracker data.",
             error
         );
 
+
         return defaultDatabase();
+
     }
+
 }
 
 
 function saveDatabase(database) {
+
     localStorage.setItem(
+
         STORAGE_KEY,
-        JSON.stringify(database)
+
+        JSON.stringify(
+            database
+        )
+
     );
+
 }
 
 
@@ -337,35 +515,67 @@ function saveDatabase(database) {
    DATE HELPERS
 ========================================== */
 
-function dateKey(date = new Date()) {
-    const year = date.getFullYear();
+function dateKey(
+    date = new Date()
+) {
+
+    const year =
+        date.getFullYear();
+
 
     const month =
-        String(date.getMonth() + 1)
-            .padStart(2, "0");
+        String(
+            date.getMonth() + 1
+        )
+            .padStart(
+                2,
+                "0"
+            );
+
 
     const day =
-        String(date.getDate())
-            .padStart(2, "0");
+        String(
+            date.getDate()
+        )
+            .padStart(
+                2,
+                "0"
+            );
+
 
     return `${year}-${month}-${day}`;
+
 }
 
 
 function dateFromKey(key) {
+
     const parts =
-        key.split("-").map(Number);
+        key
+            .split("-")
+            .map(Number);
+
 
     return new Date(
+
         parts[0],
+
         parts[1] - 1,
+
         parts[2]
+
     );
+
 }
 
 
-function getMonday(date = new Date()) {
-    const copy = new Date(date);
+function getMonday(
+    date = new Date()
+) {
+
+    const copy =
+        new Date(date);
+
 
     copy.setHours(
         0,
@@ -374,63 +584,105 @@ function getMonday(date = new Date()) {
         0
     );
 
-    const day = copy.getDay();
+
+    const day =
+        copy.getDay();
+
 
     const difference =
         day === 0
             ? -6
             : 1 - day;
 
+
     copy.setDate(
-        copy.getDate() + difference
+        copy.getDate() +
+        difference
     );
 
+
     return copy;
+
 }
 
 
-function addDays(date, amount) {
-    const copy = new Date(date);
+function addDays(
+    date,
+    amount
+) {
+
+    const copy =
+        new Date(date);
+
 
     copy.setDate(
-        copy.getDate() + amount
+        copy.getDate() +
+        amount
     );
 
+
     return copy;
+
 }
 
 
-function getWeekDates(date = new Date()) {
-    const monday = getMonday(date);
+function getWeekDates(
+    date = new Date()
+) {
+
+    const monday =
+        getMonday(date);
+
 
     const result = [];
 
-    for (let i = 0; i < 7; i++) {
+
+    for (
+        let i = 0;
+        i < 7;
+        i++
+    ) {
+
         result.push(
-            addDays(monday, i)
+            addDays(
+                monday,
+                i
+            )
         );
+
     }
 
+
     return result;
+
 }
 
 
-function getWeekId(date = new Date()) {
+function getWeekId(
+    date = new Date()
+) {
+
     return dateKey(
         getMonday(date)
     );
+
 }
 
 
 function formatDate(date) {
+
     return date.toLocaleDateString(
+
         "en-US",
+
         {
             month: "short",
             day: "numeric",
             year: "numeric"
         }
+
     );
+
 }
 
 
@@ -438,20 +690,34 @@ function formatDate(date) {
    DAILY DATA
 ========================================== */
 
-function ensureDay(database, key) {
+function ensureDay(
+    database,
+    key
+) {
+
     if (!database.days[key]) {
+
         database.days[key] = {
+
             entries: []
+
         };
+
     }
+
 
     if (
         !Array.isArray(
-            database.days[key].entries
+            database.days[key]
+                .entries
         )
     ) {
-        database.days[key].entries = [];
+
+        database.days[key]
+            .entries = [];
+
     }
+
 }
 
 
@@ -459,10 +725,12 @@ function getEntriesForDate(
     database,
     key
 ) {
+
     return (
         database.days[key]
             ?.entries || []
     );
+
 }
 
 
@@ -470,15 +738,22 @@ function getDailyTotal(
     database,
     key
 ) {
+
     return getEntriesForDate(
         database,
         key
     ).reduce(
+
         (sum, entry) =>
             sum +
-            Number(entry.calories || 0),
+            Number(
+                entry.calories || 0
+            ),
+
         0
+
     );
+
 }
 
 
@@ -490,16 +765,21 @@ function getWeeklyTotal(
     database,
     date = new Date()
 ) {
+
     return getWeekDates(date)
         .reduce(
+
             (sum, day) =>
                 sum +
                 getDailyTotal(
                     database,
                     dateKey(day)
                 ),
+
             0
+
         );
+
 }
 
 
@@ -512,35 +792,45 @@ function addEntry(
     calories,
     source = "Manual"
 ) {
+
     const amount =
         Math.round(
             Number(calories)
         );
 
+
     if (
         !Number.isFinite(amount) ||
         amount <= 0
     ) {
+
         return;
+
     }
+
 
     const database =
         loadDatabase();
 
+
     const key =
         dateKey();
+
 
     ensureDay(
         database,
         key
     );
 
+
     database.days[key]
         .entries.push({
+
             id:
                 Date.now() +
                 Math.floor(
-                    Math.random() * 1000
+                    Math.random() *
+                    1000
                 ),
 
             name:
@@ -561,11 +851,17 @@ function addEntry(
                             minute: "2-digit"
                         }
                     )
+
         });
 
-    saveDatabase(database);
+
+    saveDatabase(
+        database
+    );
+
 
     renderAll();
+
 }
 
 
@@ -574,18 +870,23 @@ function addEntry(
 ========================================== */
 
 function deleteEntry(id) {
+
     const database =
         loadDatabase();
 
+
     const key =
         dateKey();
+
 
     ensureDay(
         database,
         key
     );
 
-    database.days[key].entries =
+
+    database.days[key]
+        .entries =
         database.days[key]
             .entries
             .filter(
@@ -593,9 +894,14 @@ function deleteEntry(id) {
                     entry.id !== id
             );
 
-    saveDatabase(database);
+
+    saveDatabase(
+        database
+    );
+
 
     renderAll();
+
 }
 
 
@@ -604,6 +910,7 @@ function deleteEntry(id) {
 ========================================== */
 
 function saveDailyTarget() {
+
     const value =
         Math.round(
             Number(
@@ -611,32 +918,46 @@ function saveDailyTarget() {
             )
         );
 
+
     if (
         !Number.isFinite(value) ||
         value <= 0
     ) {
+
         alert(
             "Enter a valid daily calorie target."
         );
 
         return;
+
     }
+
 
     const database =
         loadDatabase();
 
-    database.settings.dailyTarget =
+
+    database.settings
+        .dailyTarget =
         value;
 
-    saveDatabase(database);
 
-    dailyTargetInput.value = "";
+    saveDatabase(
+        database
+    );
+
+
+    dailyTargetInput.value =
+        "";
+
 
     renderAll();
+
 }
 
 
 function saveWeeklyTarget() {
+
     const value =
         Math.round(
             Number(
@@ -644,44 +965,63 @@ function saveWeeklyTarget() {
             )
         );
 
+
     if (
         !Number.isFinite(value) ||
         value <= 0
     ) {
+
         alert(
             "Enter a valid weekly calorie target."
         );
 
         return;
+
     }
+
 
     const database =
         loadDatabase();
 
-    database.settings.weeklyTarget =
+
+    database.settings
+        .weeklyTarget =
         value;
 
-    saveDatabase(database);
 
-    weeklyTargetInput.value = "";
+    saveDatabase(
+        database
+    );
+
+
+    weeklyTargetInput.value =
+        "";
+
 
     renderAll();
+
 }
 
 
 if (saveDailyTargetBtn) {
-    saveDailyTargetBtn.addEventListener(
-        "click",
-        saveDailyTarget
-    );
+
+    saveDailyTargetBtn
+        .addEventListener(
+            "click",
+            saveDailyTarget
+        );
+
 }
 
 
 if (saveWeeklyTargetBtn) {
-    saveWeeklyTargetBtn.addEventListener(
-        "click",
-        saveWeeklyTarget
-    );
+
+    saveWeeklyTargetBtn
+        .addEventListener(
+            "click",
+            saveWeeklyTarget
+        );
+
 }
 
 
@@ -690,31 +1030,45 @@ if (saveWeeklyTargetBtn) {
 ========================================== */
 
 function saveWeight() {
+
     if (!weightInput) {
+
         return;
+
     }
 
+
     const weight =
-        Number(weightInput.value);
+        Number(
+            weightInput.value
+        );
+
 
     if (
         !Number.isFinite(weight) ||
         weight <= 0
     ) {
+
         alert(
             "Enter a valid weight."
         );
 
         return;
+
     }
+
 
     const database =
         loadDatabase();
 
-    database.settings.currentWeight =
+
+    database.settings
+        .currentWeight =
         weight;
 
+
     database.weightHistory.push({
+
         date:
             dateKey(),
 
@@ -730,60 +1084,94 @@ function saveWeight() {
                         minute: "2-digit"
                     }
                 )
+
     });
 
-    saveDatabase(database);
 
-    weightInput.value = "";
+    saveDatabase(
+        database
+    );
+
+
+    weightInput.value =
+        "";
+
 
     renderAll();
+
 }
 
 
 if (saveWeightBtn) {
-    saveWeightBtn.addEventListener(
-        "click",
-        saveWeight
-    );
+
+    saveWeightBtn
+        .addEventListener(
+            "click",
+            saveWeight
+        );
+
 }
 
 
 function renderWeight() {
+
     if (!currentWeightDisplay) {
+
         return;
+
     }
+
 
     const database =
         loadDatabase();
 
+
     const weight =
-        database.settings.currentWeight;
+        database.settings
+            .currentWeight;
+
 
     if (weight > 0) {
-        currentWeightDisplay.textContent =
+
+        currentWeightDisplay
+            .textContent =
             `${weight.toFixed(1)} kg`;
+
     }
 
     else {
-        currentWeightDisplay.textContent =
+
+        currentWeightDisplay
+            .textContent =
             "Not set";
+
     }
 
+
     if (!weightUpdated) {
+
         return;
+
     }
+
 
     const history =
         database.weightHistory;
 
+
     if (history.length > 0) {
+
         const latest =
             history[
                 history.length - 1
             ];
 
+
         const date =
-            dateFromKey(latest.date);
+            dateFromKey(
+                latest.date
+            );
+
 
         weightUpdated.textContent =
             `Last updated: ${
@@ -796,23 +1184,27 @@ function renderWeight() {
                     }
                 )
             }`;
+
     }
 
     else {
+
         weightUpdated.textContent =
             "Enter your current weight";
+
     }
+
 }
-
-
 /* ==========================================
    FOOD DROPDOWN
 ========================================== */
 
 function populateFoods() {
+
     if (!foodSelect) {
         return;
     }
+
 
     /*
        Prevent duplicates if this function
@@ -824,65 +1216,88 @@ function populateFoods() {
             'option[value=""]'
         );
 
+
     foodSelect.innerHTML = "";
 
+
     if (firstOption) {
+
         foodSelect.appendChild(
             firstOption
         );
+
     }
 
     else {
+
         const placeholder =
             document.createElement(
                 "option"
             );
 
+
         placeholder.value = "";
+
         placeholder.textContent =
             "Choose food";
+
 
         foodSelect.appendChild(
             placeholder
         );
+
     }
+
 
     foods.forEach(
         (food, index) => {
+
             const option =
                 document.createElement(
                     "option"
                 );
 
+
             option.value =
                 String(index);
+
 
             option.textContent =
                 `${food.name} — ` +
                 `${food.calories} kcal`;
 
+
             foodSelect.appendChild(
                 option
             );
+
         }
     );
+
 }
 
 
 if (foodSelect) {
+
     foodSelect.addEventListener(
         "change",
         () => {
+
             if (
                 foodSelect.value === ""
             ) {
+
                 if (foodInfo) {
+
                     foodInfo.classList
                         .add("hidden");
+
                 }
 
                 return;
+
             }
+
 
             const food =
                 foods[
@@ -891,29 +1306,43 @@ if (foodSelect) {
                     )
                 ];
 
+
             if (foodServing) {
+
                 foodServing.textContent =
                     food.serving;
+
             }
+
 
             if (foodCalories) {
+
                 foodCalories.textContent =
                     `${food.calories} kcal`;
+
             }
 
+
             if (foodProtein) {
+
                 foodProtein.textContent =
                     food.protein === null
                         ? "—"
                         : `${food.protein}g`;
+
             }
 
+
             if (foodInfo) {
+
                 foodInfo.classList
                     .remove("hidden");
+
             }
+
         }
     );
+
 }
 
 
@@ -922,18 +1351,23 @@ if (foodSelect) {
 ========================================== */
 
 if (addPresetBtn) {
+
     addPresetBtn.addEventListener(
         "click",
         () => {
+
             if (
                 foodSelect.value === ""
             ) {
+
                 alert(
                     "Choose a food first."
                 );
 
                 return;
+
             }
+
 
             const food =
                 foods[
@@ -942,30 +1376,37 @@ if (addPresetBtn) {
                     )
                 ];
 
+
             const quantity =
                 Number(
                     foodQuantity.value
                 );
 
+
             if (
                 !Number.isFinite(quantity) ||
                 quantity <= 0
             ) {
+
                 alert(
                     "Enter a valid number of servings."
                 );
 
                 return;
+
             }
+
 
             const total =
                 food.calories *
                 quantity;
 
+
             const name =
                 quantity === 1
                     ? food.name
                     : `${food.name} × ${quantity}`;
+
 
             addEntry(
                 name,
@@ -973,10 +1414,13 @@ if (addPresetBtn) {
                 "Preset"
             );
 
+
             foodQuantity.value =
                 "1";
+
         }
     );
+
 }
 
 
@@ -985,15 +1429,18 @@ if (addPresetBtn) {
 ========================================== */
 
 function updateCalculator() {
+
     const calories =
         Number(
             caloriesPerServing?.value
         ) || 0;
 
+
     const servings =
         Number(
             servingAmount?.value
         ) || 0;
+
 
     const total =
         Math.max(
@@ -1001,62 +1448,79 @@ function updateCalculator() {
             calories * servings
         );
 
+
     if (calculatedCalories) {
+
         calculatedCalories.textContent =
             Math.round(total)
                 .toLocaleString();
+
     }
+
 }
 
 
 if (caloriesPerServing) {
+
     caloriesPerServing.addEventListener(
         "input",
         updateCalculator
     );
+
 }
 
 
 if (servingAmount) {
+
     servingAmount.addEventListener(
         "input",
         updateCalculator
     );
+
 }
 
 
 if (addCalculatedBtn) {
+
     addCalculatedBtn.addEventListener(
         "click",
         () => {
+
             const calories =
                 Number(
                     caloriesPerServing.value
                 );
+
 
             const servings =
                 Number(
                     servingAmount.value
                 );
 
+
             const total =
                 calories * servings;
+
 
             if (
                 !Number.isFinite(total) ||
                 total <= 0
             ) {
+
                 alert(
                     "Enter calories and servings first."
                 );
 
                 return;
+
             }
+
 
             const name =
                 customFoodName.value
                     .trim() ||
                 "Other Food";
+
 
             addEntry(
                 name,
@@ -1064,14 +1528,20 @@ if (addCalculatedBtn) {
                 "Calculator"
             );
 
+
             customFoodName.value = "";
+
             caloriesPerServing.value = "";
+
             servingAmount.value = "";
+
 
             calculatedCalories.textContent =
                 "0";
+
         }
     );
+
 }
 
 
@@ -1080,29 +1550,36 @@ if (addCalculatedBtn) {
 ========================================== */
 
 if (quickAddBtn) {
+
     quickAddBtn.addEventListener(
         "click",
         () => {
+
             const calories =
                 Number(
                     quickCalories.value
                 );
 
+
             if (
                 !Number.isFinite(calories) ||
                 calories <= 0
             ) {
+
                 alert(
                     "Enter the calories first."
                 );
 
                 return;
+
             }
+
 
             const name =
                 quickFoodName.value
                     .trim() ||
                 "Quick Add";
+
 
             addEntry(
                 name,
@@ -1110,10 +1587,14 @@ if (quickAddBtn) {
                 "Quick Add"
             );
 
+
             quickFoodName.value = "";
+
             quickCalories.value = "";
+
         }
     );
+
 }
 
 
@@ -1122,10 +1603,13 @@ if (quickAddBtn) {
 ========================================== */
 
 function renderHeader() {
+
     const now =
         new Date();
 
+
     if (currentDate) {
+
         currentDate.textContent =
             now.toLocaleDateString(
                 "en-US",
@@ -1136,20 +1620,26 @@ function renderHeader() {
                     year: "numeric"
                 }
             );
+
     }
+
 
     const dates =
         getWeekDates(now);
 
+
     if (weekRange) {
+
         weekRange.textContent =
-            `${dates[0].toLocaleDateString(
-                "en-US",
-                {
-                    month: "short",
-                    day: "numeric"
-                }
-            )} – ${
+            `${
+                dates[0].toLocaleDateString(
+                    "en-US",
+                    {
+                        month: "short",
+                        day: "numeric"
+                    }
+                )
+            } – ${
                 dates[6].toLocaleDateString(
                     "en-US",
                     {
@@ -1158,7 +1648,9 @@ function renderHeader() {
                     }
                 )
             }`;
+
     }
+
 }
 
 
@@ -1167,11 +1659,14 @@ function renderHeader() {
 ========================================== */
 
 function renderDashboard() {
+
     const database =
         loadDatabase();
 
+
     const todayKey =
         dateKey();
+
 
     const todayTotal =
         getDailyTotal(
@@ -1179,75 +1674,105 @@ function renderDashboard() {
             todayKey
         );
 
+
     const weekTotal =
         getWeeklyTotal(
             database
         );
 
+
     const dailyTarget =
-        database.settings.dailyTarget;
+        database.settings
+            .dailyTarget;
+
 
     const weekTarget =
-        database.settings.weeklyTarget;
+        database.settings
+            .weeklyTarget;
+
 
     if (todayCalories) {
+
         todayCalories.textContent =
             todayTotal.toLocaleString();
+
     }
 
+
     if (weeklyCalories) {
+
         weeklyCalories.textContent =
             weekTotal.toLocaleString();
+
     }
 
 
     /* DAILY TARGET */
 
     if (dailyTarget > 0) {
+
         if (dailyTargetDisplay) {
+
             dailyTargetDisplay.textContent =
                 `${dailyTarget.toLocaleString()} kcal`;
+
         }
+
 
         const remaining =
             dailyTarget -
             todayTotal;
 
+
         if (dailyStatus) {
+
             dailyStatus.className =
                 "status-text";
 
+
             if (remaining > 0) {
+
                 dailyStatus.textContent =
                     `${remaining.toLocaleString()} kcal remaining`;
+
 
                 dailyStatus.classList.add(
                     "status-under"
                 );
+
             }
 
             else if (remaining === 0) {
+
                 dailyStatus.textContent =
                     "Daily target reached";
+
 
                 dailyStatus.classList.add(
                     "status-hit"
                 );
+
             }
 
             else {
+
                 dailyStatus.textContent =
                     `${Math.abs(
                         remaining
                     ).toLocaleString()} kcal over target`;
 
+
                 dailyStatus.classList.add(
                     "status-over"
                 );
+
             }
+
         }
 
+
         if (dailyProgress) {
+
             const percent =
                 Math.min(
                     100,
@@ -1257,102 +1782,145 @@ function renderDashboard() {
                     ) * 100
                 );
 
+
             dailyProgress.style.width =
                 `${percent}%`;
+
 
             dailyProgress.classList.toggle(
                 "over",
                 todayTotal > dailyTarget
             );
+
         }
+
     }
 
     else {
+
         if (dailyTargetDisplay) {
+
             dailyTargetDisplay.textContent =
                 "Not set";
+
         }
 
+
         if (dailyStatus) {
+
             dailyStatus.textContent =
                 "Set your daily target";
 
+
             dailyStatus.className =
                 "status-text";
+
         }
 
+
         if (dailyProgress) {
+
             dailyProgress.style.width =
                 "0%";
+
 
             dailyProgress.classList.remove(
                 "over"
             );
+
         }
+
     }
 
 
     /* WEEKLY TARGET */
 
     if (weekTarget > 0) {
+
         if (weeklyTargetDisplay) {
+
             weeklyTargetDisplay.textContent =
                 `${weekTarget.toLocaleString()} kcal`;
+
         }
+
 
         const remaining =
             weekTarget -
             weekTotal;
 
+
         if (weeklyDifference) {
+
             weeklyDifference.className =
                 "status-text";
 
+
             if (remaining > 0) {
+
                 weeklyDifference.textContent =
                     `${remaining.toLocaleString()} kcal remaining`;
+
 
                 weeklyDifference.classList.add(
                     "status-under"
                 );
+
             }
 
             else if (remaining === 0) {
+
                 weeklyDifference.textContent =
                     "Weekly target reached";
+
 
                 weeklyDifference.classList.add(
                     "status-hit"
                 );
+
             }
 
             else {
+
                 weeklyDifference.textContent =
                     `${Math.abs(
                         remaining
                     ).toLocaleString()} kcal over target`;
 
+
                 weeklyDifference.classList.add(
                     "status-over"
                 );
+
             }
+
         }
+
     }
 
     else {
+
         if (weeklyTargetDisplay) {
+
             weeklyTargetDisplay.textContent =
                 "Not set";
+
         }
 
+
         if (weeklyDifference) {
+
             weeklyDifference.textContent =
                 "Set your weekly target";
 
+
             weeklyDifference.className =
                 "status-text";
+
         }
+
     }
+
 }
 
 
@@ -1361,12 +1929,23 @@ function renderDashboard() {
 ========================================== */
 
 function renderFoodLog() {
+
     if (!foodLog) {
         return;
     }
 
+
     const database =
         loadDatabase();
+
+
+    /*
+       IMPORTANT:
+       Only today's date is loaded here.
+
+       This means yesterday's food does NOT
+       appear in today's food log.
+    */
 
     const entries =
         getEntriesForDate(
@@ -1374,7 +1953,9 @@ function renderFoodLog() {
             dateKey()
         );
 
+
     foodLog.innerHTML = "";
+
 
     const total =
         entries.reduce(
@@ -1386,12 +1967,17 @@ function renderFoodLog() {
             0
         );
 
+
     if (todayLogTotal) {
+
         todayLogTotal.textContent =
             `${total.toLocaleString()} kcal`;
+
     }
 
+
     if (entries.length === 0) {
+
         foodLog.innerHTML = `
             <div class="empty-state">
                 Nothing added yet.
@@ -1399,98 +1985,126 @@ function renderFoodLog() {
         `;
 
         return;
+
     }
 
-    entries.forEach(entry => {
-        const row =
-            document.createElement(
-                "div"
+
+    entries.forEach(
+        entry => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "food-entry";
+
+
+            const info =
+                document.createElement(
+                    "div"
+                );
+
+
+            const name =
+                document.createElement(
+                    "div"
+                );
+
+
+            name.className =
+                "food-entry-name";
+
+
+            name.textContent =
+                entry.name;
+
+
+            const meta =
+                document.createElement(
+                    "div"
+                );
+
+
+            meta.className =
+                "food-entry-meta";
+
+
+            meta.textContent =
+                `${entry.source} • ${entry.time}`;
+
+
+            info.append(
+                name,
+                meta
             );
 
-        row.className =
-            "food-entry";
 
-        const info =
-            document.createElement(
-                "div"
+            const calories =
+                document.createElement(
+                    "span"
+                );
+
+
+            calories.className =
+                "food-entry-calories";
+
+
+            calories.textContent =
+                `${Number(
+                    entry.calories
+                ).toLocaleString()} kcal`;
+
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            deleteButton.type =
+                "button";
+
+
+            deleteButton.className =
+                "delete-entry";
+
+
+            deleteButton.textContent =
+                "×";
+
+
+            deleteButton.title =
+                "Delete entry";
+
+
+            deleteButton.addEventListener(
+                "click",
+                () =>
+                    deleteEntry(
+                        entry.id
+                    )
             );
 
-        const name =
-            document.createElement(
-                "div"
+
+            row.append(
+                info,
+                calories,
+                deleteButton
             );
 
-        name.className =
-            "food-entry-name";
 
-        name.textContent =
-            entry.name;
-
-        const meta =
-            document.createElement(
-                "div"
+            foodLog.appendChild(
+                row
             );
 
-        meta.className =
-            "food-entry-meta";
+        }
+    );
 
-        meta.textContent =
-            `${entry.source} • ${entry.time}`;
-
-        info.append(
-            name,
-            meta
-        );
-
-        const calories =
-            document.createElement(
-                "span"
-            );
-
-        calories.className =
-            "food-entry-calories";
-
-        calories.textContent =
-            `${Number(
-                entry.calories
-            ).toLocaleString()} kcal`;
-
-        const deleteButton =
-            document.createElement(
-                "button"
-            );
-
-        deleteButton.type =
-            "button";
-
-        deleteButton.className =
-            "delete-entry";
-
-        deleteButton.textContent =
-            "×";
-
-        deleteButton.title =
-            "Delete entry";
-
-        deleteButton.addEventListener(
-            "click",
-            () =>
-                deleteEntry(
-                    entry.id
-                )
-        );
-
-        row.append(
-            info,
-            calories,
-            deleteButton
-        );
-
-        foodLog.appendChild(
-            row
-        );
-    });
 }
+
 
 /* ==========================================
    WORKOUT
@@ -1502,20 +2116,27 @@ function renderWorkout() {
         return;
     }
 
-    const now = new Date();
 
-    const day = now.toLocaleDateString(
-        "en-US",
-        {
-            weekday: "long"
-        }
-    );
+    const now =
+        new Date();
+
+
+    const day =
+        now.toLocaleDateString(
+            "en-US",
+            {
+                weekday: "long"
+            }
+        );
 
 
     /* SHOW DAY */
 
     if (workoutDay) {
-        workoutDay.textContent = day;
+
+        workoutDay.textContent =
+            day;
+
     }
 
 
@@ -1538,49 +2159,52 @@ function renderWorkout() {
 
     /* GET TODAY'S WORKOUT */
 
-    const workout = workouts[day];
+    const workout =
+        workouts[day];
 
 
-    /* ======================================
-       REST DAY
-    ====================================== */
+    /* REST DAY */
 
     if (!workout) {
 
         workoutContent.innerHTML = `
             <div class="workout-title">
-
                 <h3>Rest Day</h3>
 
                 <p>
                     No scheduled workout today.
                 </p>
-
             </div>
         `;
 
         return;
+
     }
 
 
     /* CLEAR OLD CONTENT */
 
-    workoutContent.innerHTML = "";
+    workoutContent.innerHTML =
+        "";
 
 
-    /* ======================================
-       WORKOUT TITLE
-    ====================================== */
+    /* WORKOUT TITLE */
 
     const title =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     title.className =
         "workout-title";
 
 
     const titleText =
-        document.createElement("h3");
+        document.createElement(
+            "h3"
+        );
+
 
     titleText.textContent =
         workout.title;
@@ -1596,43 +2220,49 @@ function renderWorkout() {
     );
 
 
-    /* ======================================
-       EXERCISE GROUPS
-    ====================================== */
+    /* EXERCISE GROUPS */
 
     workout.groups.forEach(
         group => {
 
             const section =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             section.className =
                 "workout-group";
 
 
-            /* GROUP NAME */
-
             const heading =
-                document.createElement("h4");
+                document.createElement(
+                    "h4"
+                );
+
 
             heading.textContent =
                 group.name;
 
 
-            /* EXERCISES */
-
             const list =
-                document.createElement("ul");
+                document.createElement(
+                    "ul"
+                );
 
 
             group.exercises.forEach(
                 exercise => {
 
                     const item =
-                        document.createElement("li");
+                        document.createElement(
+                            "li"
+                        );
+
 
                     item.textContent =
                         exercise;
+
 
                     list.appendChild(
                         item
@@ -1642,13 +2272,15 @@ function renderWorkout() {
             );
 
 
-            /* SET GUIDE */
-
             const guide =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             guide.className =
                 "set-guide";
+
 
             guide.textContent =
                 group.guide;
@@ -1682,12 +2314,8 @@ function openWorkoutModal() {
     }
 
 
-    /* LOAD TODAY'S WORKOUT */
-
     renderWorkout();
 
-
-    /* SHOW POPUP */
 
     workoutModal.classList.add(
         "open"
@@ -1699,8 +2327,6 @@ function openWorkoutModal() {
         "false"
     );
 
-
-    /* PREVENT BACKGROUND SCROLLING */
 
     document.body.style.overflow =
         "hidden";
@@ -1715,8 +2341,6 @@ function closeWorkoutModal() {
     }
 
 
-    /* HIDE POPUP */
-
     workoutModal.classList.remove(
         "open"
     );
@@ -1728,17 +2352,13 @@ function closeWorkoutModal() {
     );
 
 
-    /* ENABLE PAGE SCROLLING */
-
     document.body.style.overflow =
         "";
 
 }
 
 
-/* ==========================================
-   VIEW WORKOUT BUTTON
-========================================== */
+/* VIEW WORKOUT BUTTON */
 
 if (showWorkoutBtn) {
 
@@ -1750,9 +2370,7 @@ if (showWorkoutBtn) {
 }
 
 
-/* ==========================================
-   X CLOSE BUTTON
-========================================== */
+/* X CLOSE BUTTON */
 
 if (closeWorkoutBtn) {
 
@@ -1764,9 +2382,7 @@ if (closeWorkoutBtn) {
 }
 
 
-/* ==========================================
-   CLICK DARK BACKGROUND TO CLOSE
-========================================== */
+/* CLICK BACKDROP TO CLOSE */
 
 if (workoutModalBackdrop) {
 
@@ -1778,9 +2394,7 @@ if (workoutModalBackdrop) {
 }
 
 
-/* ==========================================
-   ESC KEY TO CLOSE
-========================================== */
+/* ESC KEY TO CLOSE */
 
 document.addEventListener(
     "keydown",
@@ -1800,20 +2414,23 @@ document.addEventListener(
 
     }
 );
-
 /* ==========================================
    WEEK VIEW
 ========================================== */
 
 function renderWeek() {
+
     const database =
         loadDatabase();
+
 
     const dates =
         getWeekDates();
 
+
     const todayKey =
         dateKey();
+
 
     const labels = [
         "Mon",
@@ -1825,13 +2442,19 @@ function renderWeek() {
         "Sun"
     ];
 
+
     if (weekDays) {
-        weekDays.innerHTML = "";
+
+        weekDays.innerHTML =
+            "";
+
 
         dates.forEach(
             (date, index) => {
+
                 const key =
                     dateKey(date);
+
 
                 const total =
                     getDailyTotal(
@@ -1839,40 +2462,51 @@ function renderWeek() {
                         key
                     );
 
+
                 const row =
                     document.createElement(
                         "div"
                     );
 
+
                 row.className =
                     "week-row";
+
 
                 if (
                     key === todayKey
                 ) {
+
                     row.classList.add(
                         "today-row"
                     );
+
                 }
+
 
                 const day =
                     document.createElement(
                         "strong"
                     );
 
+
                 day.className =
                     "week-day";
 
+
                 day.textContent =
                     labels[index];
+
 
                 const dateLabel =
                     document.createElement(
                         "span"
                     );
 
+
                 dateLabel.className =
                     "week-date";
+
 
                 dateLabel.textContent =
                     date.toLocaleDateString(
@@ -1883,16 +2517,20 @@ function renderWeek() {
                         }
                     );
 
+
                 const calories =
                     document.createElement(
                         "strong"
                     );
 
+
                 calories.className =
                     "week-calories";
 
+
                 calories.textContent =
                     `${total.toLocaleString()} kcal`;
+
 
                 row.append(
                     day,
@@ -1900,65 +2538,99 @@ function renderWeek() {
                     calories
                 );
 
+
                 weekDays.appendChild(
                     row
                 );
+
             }
         );
+
     }
+
 
     const weekTotal =
         getWeeklyTotal(
             database
         );
 
+
     const target =
-        database.settings.weeklyTarget;
+        database.settings
+            .weeklyTarget;
+
 
     if (summaryConsumed) {
+
         summaryConsumed.textContent =
             `${weekTotal.toLocaleString()} kcal`;
+
     }
 
+
     if (target > 0) {
+
         if (summaryTarget) {
+
             summaryTarget.textContent =
                 `${target.toLocaleString()} kcal`;
+
         }
+
 
         const difference =
             weekTotal -
             target;
 
+
         if (summaryDifference) {
+
             if (difference > 0) {
+
                 summaryDifference.textContent =
                     `+${difference.toLocaleString()} kcal`;
+
             }
 
             else {
+
                 summaryDifference.textContent =
                     `${difference.toLocaleString()} kcal`;
+
             }
+
         }
+
     }
 
     else {
+
         if (summaryTarget) {
+
             summaryTarget.textContent =
                 "Not set";
+
         }
+
 
         if (summaryDifference) {
+
             summaryDifference.textContent =
                 "—";
+
         }
+
     }
 
+
     if (archiveCount) {
+
         archiveCount.textContent =
-            database.archivedWeeks.length;
+            database.archivedWeeks
+                .length;
+
     }
+
 }
 
 
@@ -1967,38 +2639,54 @@ function renderWeek() {
 ========================================== */
 
 function updateResetButton() {
+
     if (!resetWeekBtn) {
         return;
     }
 
+
     const now =
         new Date();
+
 
     const isSunday =
         now.getDay() === 0;
 
+
     resetWeekBtn.disabled =
         !isSunday;
 
+
     if (isSunday) {
+
         resetWeekBtn.textContent =
             "Reset & Archive Week";
 
+
         if (resetMessage) {
+
             resetMessage.textContent =
                 "Ready to archive and reset this week";
+
         }
+
     }
 
     else {
+
         resetWeekBtn.textContent =
             "🔒 Reset Week";
 
+
         if (resetMessage) {
+
             resetMessage.textContent =
                 "Available every Sunday";
+
         }
+
     }
+
 }
 
 
@@ -2007,75 +2695,118 @@ function updateResetButton() {
 ========================================== */
 
 function resetCurrentWeek() {
+
     const now =
         new Date();
 
-    if (now.getDay() !== 0) {
+
+    /*
+       Reset is only allowed on Sunday.
+    */
+
+    if (
+        now.getDay() !== 0
+    ) {
+
         alert(
             "Weekly reset is only available on Sunday."
         );
 
         return;
+
     }
+
 
     const confirmed =
         confirm(
             "Archive this week's calorie data and reset the current week?"
         );
 
+
     if (!confirmed) {
         return;
     }
 
+
     const database =
         loadDatabase();
+
 
     const dates =
         getWeekDates(now);
 
+
     const monday =
         dates[0];
+
 
     const sunday =
         dates[6];
 
+
     const weekId =
         dateKey(monday);
 
-    const weekDaysData = {};
 
-    let totalCalories = 0;
+    const weekDaysData =
+        {};
 
-    dates.forEach(date => {
-        const key =
-            dateKey(date);
 
-        /*
-           Store every day in the archive,
-           even if no food was logged.
-        */
+    let totalCalories =
+        0;
 
-        const entries =
-            getEntriesForDate(
-                database,
-                key
-            );
 
-        weekDaysData[key] = {
-            entries:
-                JSON.parse(
-                    JSON.stringify(
-                        entries
+    /*
+       Copy Monday through Sunday into
+       the archive before deleting the
+       active calorie data.
+    */
+
+    dates.forEach(
+        date => {
+
+            const key =
+                dateKey(date);
+
+
+            /*
+               Store every day even when
+               no food was entered.
+            */
+
+            const entries =
+                getEntriesForDate(
+                    database,
+                    key
+                );
+
+
+            weekDaysData[key] = {
+
+                entries:
+                    JSON.parse(
+                        JSON.stringify(
+                            entries
+                        )
                     )
-                )
-        };
 
-        totalCalories +=
-            getDailyTotal(
-                database,
-                key
-            );
-    });
+            };
+
+
+            totalCalories +=
+                getDailyTotal(
+                    database,
+                    key
+                );
+
+        }
+    );
+
+
+    /*
+       Save the targets that applied
+       to this archived week.
+    */
 
     const weeklyTarget =
         Number(
@@ -2083,17 +2814,73 @@ function resetCurrentWeek() {
                 .weeklyTarget
         ) || 0;
 
+
     const dailyTarget =
         Number(
             database.settings
                 .dailyTarget
         ) || 0;
 
+
     const difference =
         weeklyTarget > 0
             ? totalCalories -
               weeklyTarget
             : null;
+
+
+    /*
+       Save the latest weight recorded
+       during this week.
+
+       If no new weight was recorded this
+       week, keep the currently saved weight
+       as the week's weight.
+    */
+
+    const startKey =
+        dateKey(monday);
+
+
+    const endKey =
+        dateKey(sunday);
+
+
+    const weightsThisWeek =
+        (database.weightHistory || [])
+            .filter(
+                entry =>
+                    entry.date >= startKey &&
+                    entry.date <= endKey
+            );
+
+
+    let weekWeight =
+        Number(
+            database.settings
+                .currentWeight
+        ) || 0;
+
+
+    if (
+        weightsThisWeek.length > 0
+    ) {
+
+        weekWeight =
+            Number(
+                weightsThisWeek[
+                    weightsThisWeek.length - 1
+                ].weight
+            ) || weekWeight;
+
+    }
+
+
+    /*
+       Find this week in the archive.
+       This prevents duplicate copies
+       of the same week.
+    */
 
     const existingIndex =
         database.archivedWeeks
@@ -2103,14 +2890,16 @@ function resetCurrentWeek() {
                     weekId
             );
 
+
     const archivedWeek = {
+
         weekId,
 
         startDate:
-            dateKey(monday),
+            startKey,
 
         endDate:
-            dateKey(sunday),
+            endKey,
 
         dailyTarget,
 
@@ -2121,27 +2910,39 @@ function resetCurrentWeek() {
 
         difference,
 
+        weight:
+            weekWeight,
+
         days:
             weekDaysData
+
     };
 
+
     /*
-       If the same week was somehow
-       archived before, update it instead
-       of creating a duplicate.
+       If this week was already archived,
+       replace it rather than creating
+       another copy.
     */
 
-    if (existingIndex >= 0) {
+    if (
+        existingIndex >= 0
+    ) {
+
         database.archivedWeeks[
             existingIndex
         ] = archivedWeek;
+
     }
 
     else {
+
         database.archivedWeeks.push(
             archivedWeek
         );
+
     }
+
 
     database.archivedWeeks.sort(
         (a, b) =>
@@ -2150,35 +2951,58 @@ function resetCurrentWeek() {
             )
     );
 
-    /*
-       Delete only this week's calorie
-       entries.
 
-       Targets, weight and weight history
-       are NOT deleted.
+    /*
+       IMPORTANT:
+
+       Delete ONLY the calorie/food data
+       for Monday through Sunday.
+
+       These remain untouched:
+       - Daily calorie target
+       - Weekly calorie target
+       - Current weight
+       - Weight history
+       - Previous archived weeks
     */
 
-    dates.forEach(date => {
-        delete database.days[
-            dateKey(date)
-        ];
-    });
+    dates.forEach(
+        date => {
 
-    saveDatabase(database);
+            delete database.days[
+                dateKey(date)
+            ];
+
+        }
+    );
+
+
+    saveDatabase(
+        database
+    );
+
 
     renderAll();
+
 
     alert(
         "Week archived successfully. Your calorie log has been reset."
     );
+
 }
 
 
+/* ==========================================
+   RESET BUTTON EVENT
+========================================== */
+
 if (resetWeekBtn) {
+
     resetWeekBtn.addEventListener(
         "click",
         resetCurrentWeek
     );
+
 }
 
 
@@ -2190,59 +3014,77 @@ function calorieStatus(
     consumed,
     target
 ) {
+
     if (!target) {
+
         return "No target";
+
     }
+
 
     const difference =
         consumed -
         target;
 
+
     if (difference < 0) {
+
         return `${Math.abs(
             difference
         )} kcal Under`;
+
     }
+
 
     if (difference > 0) {
+
         return `${difference} kcal Over`;
+
     }
 
+
     return "Target Reached";
+
 }
 
 
 function calculateDaysTotal(
     daysObject
 ) {
-    let total = 0;
+
+    let total =
+        0;
+
 
     Object.keys(
         daysObject || {}
-    ).forEach(key => {
-        const entries =
-            daysObject[key]
-                ?.entries || [];
+    ).forEach(
+        key => {
 
-        entries.forEach(
-            entry => {
-                total +=
-                    Number(
-                        entry.calories ||
-                        0
-                    );
-            }
-        );
-    });
+            const entries =
+                daysObject[key]
+                    ?.entries || [];
+
+
+            entries.forEach(
+                entry => {
+
+                    total +=
+                        Number(
+                            entry.calories ||
+                            0
+                        );
+
+                }
+            );
+
+        }
+    );
+
 
     return total;
+
 }
-
-
-/* ==========================================
-   EXPORT TO EXCEL
-========================================== */
-
 /* ==========================================
    EXPORT TO EXCEL
 ========================================== */
@@ -2256,6 +3098,7 @@ function exportToExcel() {
         );
 
         return;
+
     }
 
 
@@ -2268,113 +3111,277 @@ function exportToExcel() {
 
 
     /* ======================================
-       CALORIE TRACKER
+       WEEKLY CALORIE SUMMARY
     ====================================== */
 
     const calorieRows = [
         [
             "Week",
             "Date",
-            "Calories Intake",
+            "Calories Mon",
+            "Calories Tue",
+            "Calories Wed",
+            "Calories Thu",
+            "Calories Fri",
+            "Calories Sat",
+            "Calories Sun",
+            "Total Calorie Intake",
             "Calories Goal for the Week",
-            "Calories Difference"
+            "Calories Difference",
+            "That Week's Weight (kg)"
         ]
     ];
 
 
     /* ======================================
-       ADD A WEEK TO EXCEL
+       GET CALORIES FOR ONE DAY
     ====================================== */
 
-    function addWeek(
-        weekId,
+    function getCaloriesForDay(
         daysObject,
-        weeklyTarget
+        key
     ) {
 
-        const target =
-            Number(weeklyTarget) || 0;
+        const entries =
+            daysObject?.[key]
+                ?.entries || [];
+
+
+        return entries.reduce(
+            (sum, entry) =>
+                sum +
+                Number(
+                    entry.calories || 0
+                ),
+            0
+        );
+
+    }
+
+
+    /* ======================================
+       GET LATEST WEIGHT FOR WEEK
+    ====================================== */
+
+    function getLatestWeightForWeek(
+        startKey,
+        endKey,
+        archivedWeight = null,
+        useCurrentWeight = false
+    ) {
+
+        /*
+           Archived weeks now save their
+           weight directly.
+
+           Use that first when available.
+        */
+
+        if (
+            archivedWeight !== null &&
+            archivedWeight !== undefined &&
+            Number(archivedWeight) > 0
+        ) {
+
+            return Number(
+                archivedWeight
+            );
+
+        }
 
 
         /*
-            Get every date that actually
-            contains calorie entries.
+           Support weeks archived before
+           the new weekly-weight feature
+           was added.
+
+           Look through weight history
+           for the latest weight entered
+           during that week.
         */
 
-        const dates =
-            Object.keys(
-                daysObject || {}
-            )
-                .filter(key => {
-
-                    const entries =
-                        daysObject[key]
-                            ?.entries || [];
-
-                    return entries.length > 0;
-
-                })
-                .sort();
-
-
-        let runningCalories = 0;
-
-
-        dates.forEach(key => {
-
-            const entries =
-                daysObject[key]
-                    ?.entries || [];
-
-
-            const dailyCalories =
-                entries.reduce(
-                    (sum, entry) => {
-
-                        return (
-                            sum +
-                            Number(
-                                entry.calories || 0
-                            )
-                        );
-
-                    },
-                    0
+        const matchingWeights =
+            (database.weightHistory || [])
+                .filter(
+                    entry =>
+                        entry.date >= startKey &&
+                        entry.date <= endKey
                 );
 
 
-            /*
-                Calories Intake is cumulative
-                for the week.
+        if (
+            matchingWeights.length > 0
+        ) {
 
-                Example:
-
-                Monday = 1500
-                Tuesday = 1700
-
-                Monday Excel = 1500
-                Tuesday Excel = 3200
-            */
-
-            runningCalories +=
-                dailyCalories;
+            const latest =
+                matchingWeights[
+                    matchingWeights.length - 1
+                ];
 
 
-            const difference =
-                target > 0
-                    ? runningCalories - target
-                    : "";
+            return Number(
+                latest.weight
+            );
+
+        }
 
 
-            calorieRows.push([
-                weekId,
-                key,
-                runningCalories,
-                target || "",
-                difference
-            ]);
+        /*
+           For the current week, if there
+           was no new weight entry this week,
+           use the currently saved weight.
+        */
 
-        });
+        if (
+            useCurrentWeight &&
+            Number(
+                database.settings
+                    .currentWeight
+            ) > 0
+        ) {
+
+            return Number(
+                database.settings
+                    .currentWeight
+            );
+
+        }
+
+
+        return "";
+
+    }
+
+
+    /* ======================================
+       ADD ONE WEEK TO EXCEL
+    ====================================== */
+
+    function addWeeklySummaryRow(
+        weekId,
+        daysObject,
+        weeklyTarget,
+        startKey,
+        endKey,
+        archivedWeight = null,
+        useCurrentWeight = false
+    ) {
+
+        const startDate =
+            dateFromKey(
+                startKey
+            );
+
+
+        const dayKeys = [];
+
+
+        /*
+           Create:
+           Monday
+           Tuesday
+           Wednesday
+           Thursday
+           Friday
+           Saturday
+           Sunday
+        */
+
+        for (
+            let i = 0;
+            i < 7;
+            i++
+        ) {
+
+            dayKeys.push(
+                dateKey(
+                    addDays(
+                        startDate,
+                        i
+                    )
+                )
+            );
+
+        }
+
+
+        const dailyCalories =
+            dayKeys.map(
+                key =>
+                    getCaloriesForDay(
+                        daysObject,
+                        key
+                    )
+            );
+
+
+        const totalCalories =
+            dailyCalories.reduce(
+                (sum, calories) =>
+                    sum + calories,
+                0
+            );
+
+
+        const target =
+            Number(
+                weeklyTarget
+            ) || 0;
+
+
+        /*
+           CALORIES DIFFERENCE
+
+           Negative number = under goal
+           Positive number = over goal
+           Zero = exactly on goal
+        */
+
+        const difference =
+            target > 0
+                ? totalCalories -
+                  target
+                : "";
+
+
+        const weekWeight =
+            getLatestWeightForWeek(
+                startKey,
+                endKey,
+                archivedWeight,
+                useCurrentWeight
+            );
+
+
+        calorieRows.push([
+
+            weekId,
+
+            `${startKey} - ${endKey}`,
+
+            dailyCalories[0],
+
+            dailyCalories[1],
+
+            dailyCalories[2],
+
+            dailyCalories[3],
+
+            dailyCalories[4],
+
+            dailyCalories[5],
+
+            dailyCalories[6],
+
+            totalCalories,
+
+            target || "",
+
+            difference,
+
+            weekWeight
+
+        ]);
 
     }
 
@@ -2383,14 +3390,44 @@ function exportToExcel() {
        ARCHIVED WEEKS
     ====================================== */
 
-    database.archivedWeeks
+    (database.archivedWeeks || [])
         .forEach(
             week => {
 
-                addWeek(
-                    week.weekId,
+                const startKey =
+                    week.startDate ||
+                    week.weekId;
+
+
+                const endKey =
+                    week.endDate ||
+                    dateKey(
+                        addDays(
+                            dateFromKey(
+                                startKey
+                            ),
+                            6
+                        )
+                    );
+
+
+                addWeeklySummaryRow(
+
+                    week.weekId ||
+                    startKey,
+
                     week.days || {},
-                    week.target
+
+                    week.target,
+
+                    startKey,
+
+                    endKey,
+
+                    week.weight,
+
+                    false
+
                 );
 
             }
@@ -2401,43 +3438,68 @@ function exportToExcel() {
        CURRENT WEEK
     ====================================== */
 
-    const currentWeekId =
-        getWeekId();
+    const currentWeekDates =
+        getWeekDates();
 
 
-    const currentWeekDays = {};
+    const currentWeekStart =
+        dateKey(
+            currentWeekDates[0]
+        );
 
 
-    Object.keys(
-        database.days || {}
-    ).forEach(key => {
-
-        const date =
-            dateFromKey(key);
+    const currentWeekEnd =
+        dateKey(
+            currentWeekDates[6]
+        );
 
 
-        if (
-            getWeekId(date) ===
-            currentWeekId
-        ) {
+    const currentWeekDays =
+        {};
 
-            currentWeekDays[key] =
-                database.days[key];
+
+    currentWeekDates.forEach(
+        date => {
+
+            const key =
+                dateKey(date);
+
+
+            if (
+                database.days[key]
+            ) {
+
+                currentWeekDays[key] =
+                    database.days[key];
+
+            }
 
         }
+    );
 
-    });
 
+    addWeeklySummaryRow(
 
-    addWeek(
-        currentWeekId,
+        currentWeekStart,
+
         currentWeekDays,
-        database.settings.weeklyTarget
+
+        database.settings
+            .weeklyTarget,
+
+        currentWeekStart,
+
+        currentWeekEnd,
+
+        null,
+
+        true
+
     );
 
 
     /* ======================================
-       CREATE CALORIE SHEET
+       CREATE CALORIE TRACKER SHEET
     ====================================== */
 
     const calorieSheet =
@@ -2446,19 +3508,50 @@ function exportToExcel() {
         );
 
 
+    /*
+       Make the columns wide enough
+       to read comfortably in Excel.
+    */
+
     calorieSheet["!cols"] = [
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 20 },
-        { wch: 28 },
-        { wch: 22 }
+
+        { wch: 15 }, // Week
+
+        { wch: 25 }, // Date
+
+        { wch: 15 }, // Monday
+
+        { wch: 15 }, // Tuesday
+
+        { wch: 15 }, // Wednesday
+
+        { wch: 15 }, // Thursday
+
+        { wch: 15 }, // Friday
+
+        { wch: 15 }, // Saturday
+
+        { wch: 15 }, // Sunday
+
+        { wch: 22 }, // Total calorie intake
+
+        { wch: 28 }, // Weekly goal
+
+        { wch: 22 }, // Difference
+
+        { wch: 23 }  // Weekly weight
+
     ];
 
 
     XLSX.utils.book_append_sheet(
+
         workbook,
+
         calorieSheet,
+
         "Calorie Tracker"
+
     );
 
 
@@ -2476,11 +3569,12 @@ function exportToExcel() {
     ];
 
 
-    database.weightHistory
+    (database.weightHistory || [])
         .forEach(
             (entry, index) => {
 
-                let change = "";
+                let change =
+                    "";
 
 
                 if (index > 0) {
@@ -2490,7 +3584,8 @@ function exportToExcel() {
                             database
                                 .weightHistory[
                                     index - 1
-                                ].weight
+                                ]
+                                .weight
                         );
 
 
@@ -2508,10 +3603,17 @@ function exportToExcel() {
 
 
                 weightRows.push([
+
                     entry.date,
-                    Number(entry.weight),
+
+                    Number(
+                        entry.weight
+                    ),
+
                     change,
+
                     entry.time || ""
+
                 ]);
 
             }
@@ -2525,22 +3627,31 @@ function exportToExcel() {
 
 
     weightSheet["!cols"] = [
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 15 }
+
+        { wch: 15 }, // Date
+
+        { wch: 15 }, // Weight
+
+        { wch: 15 }, // Change
+
+        { wch: 15 }  // Time
+
     ];
 
 
     XLSX.utils.book_append_sheet(
+
         workbook,
+
         weightSheet,
+
         "Weight History"
+
     );
 
 
     /* ======================================
-       DOWNLOAD
+       DOWNLOAD EXCEL FILE
     ====================================== */
 
     const filename =
@@ -2554,11 +3665,18 @@ function exportToExcel() {
 
 }
 
+
+/* ==========================================
+   EXPORT BUTTON
+========================================== */
+
 if (exportBtn) {
+
     exportBtn.addEventListener(
         "click",
         exportToExcel
     );
+
 }
 
 
@@ -2567,64 +3685,93 @@ if (exportBtn) {
 ========================================== */
 
 function renderAll() {
+
     renderHeader();
 
     renderDashboard();
 
     renderFoodLog();
 
-    renderWorkout();
-
     renderWeek();
 
     renderWeight();
 
     updateResetButton();
+
 }
 
 
 /* ==========================================
-   AUTO DATE REFRESH
+   INITIALIZE APP
 ========================================== */
 
+function initializeApp() {
+
+    populateFoods();
+
+    updateCalculator();
+
+    renderAll();
+
+}
+
+
 /*
-   If the website is left open overnight,
-   this checks periodically so the displayed
-   day/date and Sunday reset availability
-   update without requiring a refresh.
+   Start the tracker.
 */
 
-let lastRenderedDate =
-    dateKey();
-
-setInterval(
-    () => {
-        const newDate =
-            dateKey();
-
-        if (
-            newDate !==
-            lastRenderedDate
-        ) {
-            lastRenderedDate =
-                newDate;
-
-            renderAll();
-        }
-
-        else {
-            updateResetButton();
-        }
-    },
-
-    60 * 1000
-);
+initializeApp();
 
 
 /* ==========================================
-   START
+   DATE CHANGE CHECK
 ========================================== */
 
-populateFoods();
+/*
+   If the app stays open overnight,
+   refresh the screen when the calendar
+   date changes.
 
-renderAll();
+   This is what makes Today's Food and
+   Today's Calories switch to the new day
+   without deleting yesterday's history.
+*/
+
+let lastKnownDate =
+    dateKey();
+
+
+setInterval(
+    () => {
+
+        const newDate =
+            dateKey();
+
+
+        if (
+            newDate !== lastKnownDate
+        ) {
+
+            lastKnownDate =
+                newDate;
+
+
+            renderAll();
+
+        }
+
+        else {
+
+            /*
+               Also refresh the Sunday
+               reset button state.
+            */
+
+            updateResetButton();
+
+        }
+
+    },
+
+    60000
+);
