@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Fitness Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+
+    <header class="header">
+
+        <div>
+
+            <div class="top-header-row">
+
+                <p class="eyebrow">
+                    MY FITNESS TRACKER
+                </p>
+
+                <button
+                    id="showWorkoutBtn"
+                    class="view-workout-btn"
+                    type="button"
+                >
+                    View Workout
+                </button>
+
+            </div>
+
+            <h1>Dashboard</h1>
+
+            <p
+                id="currentDate"
+                class="current-date"
+            ></p>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <div class="week-badge">
+
+                <span>
+                    This Week
+                </span>
+
+                <strong id="weekRange">
+                    —
+                </strong>
+
+            </div>
+
+
+            <button
+                id="exportBtn"
+                class="export-btn"
+                type="button"
+            >
+                Export Excel
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ======================================
+         DASHBOARD
+    ======================================= -->
+
+    <section class="stats-grid">
+
+
+        <!-- TODAY'S CALORIES -->
+
+        <article class="stat-card">
+
+            <div class="stat-top">
+
+                <p>
+                    Today's Calories
+                </p>
+
+                <span class="mini-pill">
+                    Today
+                </span>
+
+            </div>
+
+
+            <h2>
+
+                <span id="todayCalories">
+                    0
+                </span>
+
+                <small>
+                    kcal
+                </small>
+
+            </h2>
+
+
+            <div class="progress">
+
+                <div
+                    id="dailyProgress"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+
+            <p
+                id="dailyStatus"
+                class="status-text"
+            >
+                Set your daily target
+            </p>
+
+        </article>
+
+
+
+        <!-- DAILY TARGET -->
+
+        <article class="stat-card">
+
+            <p>
+                Daily Target
+            </p>
+
+            <h2>
+
+                <span id="dailyTargetDisplay">
+                    Not set
+                </span>
+
+            </h2>
+
+
+            <div class="target-row">
+
+                <input
+                    id="dailyTargetInput"
+                    type="number"
+                    min="1"
+                    step="1"
+                    placeholder="e.g. 2000"
+                >
+
+                <button
+                    id="saveDailyTargetBtn"
+                    class="small-btn"
+                    type="button"
+                >
+                    Save
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- WEEKLY TARGET -->
+
+        <article class="stat-card">
+
+            <p>
+                Weekly Target
+            </p>
+
+            <h2>
+
+                <span id="weeklyTargetDisplay">
+                    Not set
+                </span>
+
+            </h2>
+
+
+            <div class="target-row">
+
+                <input
+                    id="weeklyTargetInput"
+                    type="number"
+                    min="1"
+                    step="1"
+                    placeholder="e.g. 14000"
+                >
+
+                <button
+                    id="saveWeeklyTargetBtn"
+                    class="small-btn"
+                    type="button"
+                >
+                    Save
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- WEEKLY CALORIES -->
+
+        <article class="stat-card weekly-stat">
+
+            <div class="stat-top">
+
+                <p>
+                    Weekly Calories
+                </p>
+
+                <span class="mini-pill">
+                    Mon–Sun
+                </span>
+
+            </div>
+
+
+            <h2>
+
+                <span id="weeklyCalories">
+                    0
+                </span>
+
+                <small>
+                    kcal
+                </small>
+
+            </h2>
+
+
+            <p
+                id="weeklyDifference"
+                class="status-text"
+            >
+                Set your weekly target
+            </p>
+
+        </article>
+
+
+
+        <!-- CURRENT WEIGHT -->
+
+        <article class="stat-card weight-card">
+
+            <div class="stat-top">
+
+                <p>
+                    Current Weight
+                </p>
+
+                <span class="mini-pill">
+                    Weight
+                </span>
+
+            </div>
+
+
+            <h2>
+
+                <span id="currentWeightDisplay">
+                    Not set
+                </span>
+
+            </h2>
+
+
+            <div class="weight-input-row">
+
+                <div class="weight-input-wrap">
+
+                    <input
+                        id="weightInput"
+                        type="number"
+                        min="1"
+                        step="0.1"
+                        placeholder="e.g. 72.5"
+                    >
+
+                    <span>
+                        kg
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="saveWeightBtn"
+                    class="small-btn"
+                    type="button"
+                >
+                    Save
+                </button>
+
+            </div>
+
+
+            <p
+                id="weightUpdated"
+                class="weight-updated"
+            >
+                Enter your current weight
+            </p>
+
+        </article>
+
+    </section>
+
+
+
+    <!-- ======================================
+         MAIN
+    ======================================= -->
+
+    <main class="main-grid">
+
+
+        <!-- ==================================
+             FOOD DASHBOARD
+        =================================== -->
+
+        <section class="card">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        NUTRITION
+                    </p>
+
+                    <h2>
+                        Food Dashboard
+                    </h2>
+
+                </div>
+
+
+                <span class="pill">
+                    Today
+                </span>
+
+            </div>
+
+
+
+            <!-- PRESET FOOD -->
+
+            <div class="panel-section">
+
+                <h3>
+                    Preset Food
+                </h3>
+
+                <p class="helper">
+                    Pick one of your usual foods.
+                </p>
+
+
+                <label for="foodSelect">
+                    Food
+                </label>
+
+                <select id="foodSelect">
+
+                    <option value="">
+                        Choose a food
+                    </option>
+
+                </select>
+
+
+                <div
+                    id="foodInfo"
+                    class="food-info hidden"
+                >
+
+                    <div>
+
+                        <span>
+                            Serving
+                        </span>
+
+                        <strong id="foodServing">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Calories
+                        </span>
+
+                        <strong id="foodCalories">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Protein
+                        </span>
+
+                        <strong id="foodProtein">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <label for="foodQuantity">
+                    Number of servings
+                </label>
+
+                <input
+                    id="foodQuantity"
+                    type="number"
+                    min="0.1"
+                    step="0.1"
+                    value="1"
+                >
+
+
+                <button
+                    id="addPresetBtn"
+                    class="primary-btn"
+                    type="button"
+                >
+                    + Add to Today
+                </button>
+
+            </div>
+
+
+
+            <!-- CALORIE CALCULATOR -->
+
+            <div class="panel-section">
+
+                <h3>
+                    Calorie Calculator
+                </h3>
+
+                <p class="helper">
+                    For something that isn't in your food list.
+                </p>
+
+
+                <div class="input-grid">
+
+                    <div>
+
+                        <label for="customFoodName">
+                            Food name
+                        </label>
+
+                        <input
+                            id="customFoodName"
+                            type="text"
+                            placeholder="Optional"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="caloriesPerServing">
+                            Calories per serving
+                        </label>
+
+                        <input
+                            id="caloriesPerServing"
+                            type="number"
+                            min="0"
+                            step="1"
+                            placeholder="250"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="servingAmount">
+                            Servings
+                        </label>
+
+                        <input
+                            id="servingAmount"
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder="1"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="calculation-result">
+
+                    <span>
+                        Calculated Calories
+                    </span>
+
+                    <strong>
+
+                        <span id="calculatedCalories">
+                            0
+                        </span>
+
+                        kcal
+
+                    </strong>
+
+                </div>
+
+
+                <button
+                    id="addCalculatedBtn"
+                    class="primary-btn"
+                    type="button"
+                >
+                    + Add Calculated Calories
+                </button>
+
+            </div>
+
+
+
+            <!-- QUICK ADD -->
+
+            <div class="panel-section">
+
+                <h3>
+                    Quick Add
+                </h3>
+
+                <p class="helper">
+                    Already know the total calories?
+                </p>
+
+
+                <div class="quick-grid">
+
+                    <input
+                        id="quickFoodName"
+                        type="text"
+                        placeholder="Food name (optional)"
+                    >
+
+                    <input
+                        id="quickCalories"
+                        type="number"
+                        min="0"
+                        step="1"
+                        placeholder="Calories"
+                    >
+
+                    <button
+                        id="quickAddBtn"
+                        class="secondary-btn"
+                        type="button"
+                    >
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TODAY'S FOOD LOG -->
+
+            <div class="panel-section">
+
+                <div class="log-header">
+
+                    <div>
+
+                        <h3>
+                            Today's Food
+                        </h3>
+
+                        <p class="helper">
+                            Saved automatically.
+                        </p>
+
+                    </div>
+
+
+                    <strong id="todayLogTotal">
+                        0 kcal
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="foodLog"
+                    class="food-log"
+                >
+
+                    <div class="empty-state">
+                        Nothing added yet.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================
+             RIGHT COLUMN
+        =================================== -->
+
+        <div class="right-column">
+
+
+            <!-- THIS WEEK -->
+
+            <section class="card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            CALORIE LOG
+                        </p>
+
+                        <h2>
+                            This Week
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="weekDays"
+                    class="week-list"
+                ></div>
+
+
+                <div class="week-summary">
+
+                    <div>
+
+                        <span>
+                            Consumed
+                        </span>
+
+                        <strong id="summaryConsumed">
+                            0 kcal
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Target
+                        </span>
+
+                        <strong id="summaryTarget">
+                            Not set
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Difference
+                        </span>
+
+                        <strong id="summaryDifference">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- WEEKLY ARCHIVE -->
+
+            <section class="card archive-card">
+
+                <p class="eyebrow">
+                    HISTORY
+                </p>
+
+                <h2>
+                    Weekly Archive
+                </h2>
+
+
+                <p class="helper archive-text">
+                    Your completed week can be
+                    archived and reset every Sunday.
+                    Archived weeks stay saved for
+                    your Excel export.
+                </p>
+
+
+                <div class="archive-number">
+
+                    <strong id="archiveCount">
+                        0
+                    </strong>
+
+                    <span>
+                        completed weeks saved
+                    </span>
+
+                </div>
+
+
+                <!-- SUNDAY RESET -->
+
+                <div class="reset-area">
+
+                    <button
+                        id="resetWeekBtn"
+                        class="reset-btn"
+                        type="button"
+                        disabled
+                    >
+                        🔒 Reset Week
+                    </button>
+
+                    <p
+                        id="resetMessage"
+                        class="reset-message"
+                    >
+                        Available every Sunday
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+<!-- ======================================
+     WORKOUT POPUP
+======================================= -->
+
+<div
+    id="workoutModal"
+    class="workout-modal"
+    aria-hidden="true"
+>
+
+    <!-- DARK BACKGROUND -->
+
+    <div
+        id="workoutModalBackdrop"
+        class="workout-modal-backdrop"
+    ></div>
+
+
+    <!-- POPUP BOX -->
+
+    <div
+        class="workout-modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="workoutModalTitle"
+    >
+
+        <div class="workout-modal-header">
+
+            <div>
+
+                <span
+                    id="workoutDay"
+                    class="workout-modal-day"
+                >
+                    Today
+                </span>
+
+
+                <h2 id="workoutModalTitle">
+                    Today's Workout
+                </h2>
+
+
+                <p id="workoutDate"></p>
+
+            </div>
+
+
+            <button
+                id="closeWorkoutBtn"
+                class="workout-close-btn"
+                type="button"
+                aria-label="Close workout"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="workoutContent"
+            class="workout-modal-content"
+        ></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================
+     EXCEL LIBRARY
+======================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
+></script>
+
+
+<!-- ======================================
+     FITNESS TRACKER JAVASCRIPT
+======================================= -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
