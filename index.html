@@ -22,6 +22,7 @@
 
 <div class="app">
 
+
     <!-- ======================================
          HEADER
     ======================================= -->
@@ -371,7 +372,9 @@
 
 
 
-            <!-- PRESET FOOD -->
+            <!-- ==================================
+                 PRESET FOOD
+            =================================== -->
 
             <div class="panel-section">
 
@@ -396,6 +399,8 @@
 
                 </select>
 
+
+                <!-- PRESET NUTRITION INFO -->
 
                 <div
                     id="foodInfo"
@@ -440,6 +445,19 @@
 
                     </div>
 
+
+                    <div>
+
+                        <span>
+                            Fiber
+                        </span>
+
+                        <strong id="foodFiber">
+                            —
+                        </strong>
+
+                    </div>
+
                 </div>
 
 
@@ -468,22 +486,70 @@
 
 
 
-            <!-- CALORIE CALCULATOR -->
+            <!-- ==================================
+                 ADD FOOD TO TRACK
+            =================================== -->
 
-            <div class="panel-section">
+            <div class="panel-section add-food-toggle-section">
 
-                <h3>
-                    Calorie Calculator
-                </h3>
+                <button
+                    id="toggleCalculatorBtn"
+                    class="secondary-btn add-food-track-btn"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="nutritionCalculator"
+                >
+                    + Add Food to Track
+                </button>
 
-                <p class="helper">
-                    For something that isn't in your food list.
-                </p>
+            </div>
 
 
-                <div class="input-grid">
+
+            <!-- ==================================
+                 NUTRITION CALCULATOR
+                 HIDDEN BY DEFAULT
+            =================================== -->
+
+            <div
+                id="nutritionCalculator"
+                class="panel-section nutrition-calculator hidden"
+            >
+
+                <div class="calculator-heading">
 
                     <div>
+
+                        <h3>
+                            Nutrition Calculator
+                        </h3>
+
+                        <p class="helper">
+                            For something that isn't in your food list.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="closeCalculatorBtn"
+                        class="calculator-close-btn"
+                        type="button"
+                        aria-label="Hide nutrition calculator"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+
+                <div class="nutrition-input-grid">
+
+
+                    <!-- FOOD NAME -->
+
+                    <div class="nutrition-name-field">
 
                         <label for="customFoodName">
                             Food name
@@ -497,6 +563,9 @@
 
                     </div>
 
+
+
+                    <!-- CALORIES -->
 
                     <div>
 
@@ -515,6 +584,49 @@
                     </div>
 
 
+
+                    <!-- PROTEIN -->
+
+                    <div>
+
+                        <label for="proteinPerServing">
+                            Protein per serving (g)
+                        </label>
+
+                        <input
+                            id="proteinPerServing"
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder="20"
+                        >
+
+                    </div>
+
+
+
+                    <!-- FIBER -->
+
+                    <div>
+
+                        <label for="fiberPerServing">
+                            Fiber per serving (g)
+                        </label>
+
+                        <input
+                            id="fiberPerServing"
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder="5"
+                        >
+
+                    </div>
+
+
+
+                    <!-- SERVINGS -->
+
                     <div>
 
                         <label for="servingAmount">
@@ -524,9 +636,10 @@
                         <input
                             id="servingAmount"
                             type="number"
-                            min="0"
+                            min="0.1"
                             step="0.1"
                             placeholder="1"
+                            value="1"
                         >
 
                     </div>
@@ -534,23 +647,45 @@
                 </div>
 
 
-                <div class="calculation-result">
 
-                    <span>
-                        Calculated Calories
+                <!-- CALCULATED NUTRITION -->
+
+                <div class="nutrition-result">
+
+                    <span class="nutrition-result-title">
+                        Calculated Nutrition
                     </span>
 
-                    <strong>
 
-                        <span id="calculatedCalories">
-                            0
-                        </span>
+                    <div class="nutrition-result-values">
 
-                        kcal
+                        <strong>
+                            <span id="calculatedCalories">
+                                0
+                            </span>
+                            kcal
+                        </strong>
 
-                    </strong>
+
+                        <strong>
+                            <span id="calculatedProtein">
+                                0
+                            </span>g
+                            protein
+                        </strong>
+
+
+                        <strong>
+                            <span id="calculatedFiber">
+                                0
+                            </span>g
+                            fiber
+                        </strong>
+
+                    </div>
 
                 </div>
+
 
 
                 <button
@@ -558,14 +693,16 @@
                     class="primary-btn"
                     type="button"
                 >
-                    + Add Calculated Calories
+                    + Add Calculated Food
                 </button>
 
             </div>
 
 
 
-            <!-- QUICK ADD -->
+            <!-- ==================================
+                 QUICK ADD
+            =================================== -->
 
             <div class="panel-section">
 
@@ -574,17 +711,18 @@
                 </h3>
 
                 <p class="helper">
-                    Already know the total calories?
+                    Already know the nutrition?
                 </p>
 
 
-                <div class="quick-grid">
+                <div class="quick-nutrition-grid">
 
                     <input
                         id="quickFoodName"
                         type="text"
                         placeholder="Food name (optional)"
                     >
+
 
                     <input
                         id="quickCalories"
@@ -593,6 +731,25 @@
                         step="1"
                         placeholder="Calories"
                     >
+
+
+                    <input
+                        id="quickProtein"
+                        type="number"
+                        min="0"
+                        step="0.1"
+                        placeholder="Protein (g)"
+                    >
+
+
+                    <input
+                        id="quickFiber"
+                        type="number"
+                        min="0"
+                        step="0.1"
+                        placeholder="Fiber (g)"
+                    >
+
 
                     <button
                         id="quickAddBtn"
@@ -608,7 +765,9 @@
 
 
 
-            <!-- TODAY'S FOOD LOG -->
+            <!-- ==================================
+                 TODAY'S FOOD LOG
+            =================================== -->
 
             <div class="panel-section">
 
@@ -627,9 +786,21 @@
                     </div>
 
 
-                    <strong id="todayLogTotal">
-                        0 kcal
-                    </strong>
+                    <div class="today-nutrition-total">
+
+                        <strong id="todayLogTotal">
+                            0 kcal
+                        </strong>
+
+                        <span id="todayProteinTotal">
+                            0g protein
+                        </span>
+
+                        <span id="todayFiberTotal">
+                            0g fiber
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -658,7 +829,9 @@
         <div class="right-column">
 
 
-            <!-- THIS WEEK -->
+            <!-- ==================================
+                 THIS WEEK
+            =================================== -->
 
             <section class="card">
 
@@ -667,7 +840,7 @@
                     <div>
 
                         <p class="eyebrow">
-                            CALORIE LOG
+                            NUTRITION LOG
                         </p>
 
                         <h2>
@@ -679,11 +852,23 @@
                 </div>
 
 
+                <!--
+                    JavaScript creates the rows here.
+
+                    Each day will show:
+                    Calories
+                    Protein
+                    Fiber
+                -->
+
                 <div
                     id="weekDays"
                     class="week-list"
                 ></div>
 
+
+
+                <!-- WEEK SUMMARY -->
 
                 <div class="week-summary">
 
@@ -727,11 +912,46 @@
 
                 </div>
 
+
+
+                <!-- PROTEIN + FIBER WEEKLY TOTALS -->
+
+                <div class="macro-week-summary">
+
+                    <div>
+
+                        <span>
+                            Protein
+                        </span>
+
+                        <strong id="summaryProtein">
+                            0g
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Fiber
+                        </span>
+
+                        <strong id="summaryFiber">
+                            0g
+                        </strong>
+
+                    </div>
+
+                </div>
+
             </section>
 
 
 
-            <!-- WEEKLY ARCHIVE -->
+            <!-- ==================================
+                 WEEKLY ARCHIVE
+            =================================== -->
 
             <section class="card archive-card">
 
@@ -763,6 +983,7 @@
                     </span>
 
                 </div>
+
 
 
                 <!-- SUNDAY RESET -->
@@ -886,5 +1107,4 @@
 
 
 </body>
-
 </html>
