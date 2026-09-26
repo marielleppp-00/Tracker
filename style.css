@@ -23,6 +23,10 @@
     --success: #368f72;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
 
@@ -57,8 +61,16 @@ button {
     cursor: pointer;
 }
 
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--sky);
+    outline-offset: 2px;
+}
+
 .app {
     width: min(1180px, 92%);
+
     margin: auto;
 
     padding:
@@ -149,6 +161,60 @@ button {
 
 
 /* ==========================================
+   TOP VIEW WORKOUT BUTTON
+========================================== */
+
+.top-header-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 6px;
+}
+
+.top-header-row .eyebrow {
+    margin: 0;
+}
+
+.view-workout-btn {
+    flex-shrink: 0;
+
+    padding: 8px 12px;
+
+    border: 1px solid #b9e4f7;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #269bd3;
+
+    font: inherit;
+    font-size: 11px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.view-workout-btn:hover {
+    background: #eef9ff;
+    border-color: #8fd3f1;
+
+    transform: translateY(-1px);
+}
+
+.view-workout-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ==========================================
    BUTTONS
 ========================================== */
 
@@ -212,6 +278,10 @@ button {
     background: var(--sky-light);
 
     color: #287da8;
+}
+
+.secondary-btn:hover {
+    background: #d9f2fd;
 }
 
 .small-btn {
@@ -369,7 +439,6 @@ button {
 
 .progress-fill {
     height: 100%;
-
     width: 0%;
 
     background: var(--sky);
@@ -508,11 +577,22 @@ select {
     background: #fafdff;
 
     color: var(--text);
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+input::placeholder {
+    color: #93a8b4;
 }
 
 input:focus,
 select:focus {
     border-color: var(--sky);
+
+    background: #ffffff;
 
     box-shadow:
         0 0 0 3px
@@ -521,14 +601,14 @@ select:focus {
 
 
 /* ==========================================
-   FOOD INFO
+   PRESET FOOD INFO
 ========================================== */
 
 .food-info {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(4, 1fr);
 
     gap: 10px;
 
@@ -547,6 +627,8 @@ select:focus {
     flex-direction: column;
 
     gap: 3px;
+
+    min-width: 0;
 }
 
 .food-info span {
@@ -557,53 +639,177 @@ select:focus {
 
 .food-info strong {
     font-size: 13px;
-}
 
-.hidden {
-    display: none;
+    overflow-wrap: anywhere;
 }
 
 
 /* ==========================================
-   CALCULATOR
+   HIDDEN
 ========================================== */
 
-.input-grid {
-    display: grid;
-
-    grid-template-columns:
-        1.2fr
-        1fr
-        0.7fr;
-
-    gap: 10px;
+.hidden {
+    display: none !important;
 }
 
-.calculation-result {
+
+/* ==========================================
+   ADD FOOD TO TRACK
+========================================== */
+
+.add-food-toggle-section {
+    padding:
+        18px
+        0;
+}
+
+.add-food-track-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    border:
+        1px solid
+        #c9e9f7;
+
+    background: #eef9ff;
+
+    color: #2688b8;
+
+    font-weight: 800;
+}
+
+.add-food-track-btn:hover {
+    background: #def4ff;
+}
+
+
+/* ==========================================
+   NUTRITION CALCULATOR
+========================================== */
+
+.nutrition-calculator {
+    padding-top: 22px;
+}
+
+.calculator-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 15px;
+}
+
+.calculator-heading .helper {
+    margin-bottom: 0;
+}
+
+.calculator-close-btn {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
     display: flex;
 
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
-    gap: 15px;
+    padding: 0;
 
-    margin-top: 15px;
+    border: 0;
+    border-radius: 50%;
 
-    padding: 13px;
+    background: #eef8fc;
+    color: #5b7d8f;
+
+    font-size: 22px;
+    line-height: 1;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.calculator-close-btn:hover {
+    background: #dff3fc;
+
+    color: #267fa9;
+}
+
+
+/* ==========================================
+   NUTRITION CALCULATOR INPUTS
+========================================== */
+
+.nutrition-input-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        4px
+        12px;
+
+    margin-top: 12px;
+}
+
+.nutrition-name-field {
+    grid-column:
+        1 / -1;
+}
+
+
+/* ==========================================
+   CALCULATED NUTRITION
+========================================== */
+
+.nutrition-result {
+    margin-top: 16px;
+
+    padding: 14px;
 
     background: var(--sky-light);
 
     border-radius: 13px;
 }
 
-.calculation-result span {
+.nutrition-result-title {
+    display: block;
+
+    margin-bottom: 10px;
+
     color: #5e8297;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.nutrition-result-values {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+.nutrition-result-values strong {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    color: #2585b5;
 
     font-size: 12px;
 }
 
-.calculation-result strong {
-    color: #2585b5;
+.nutrition-result-values strong span {
+    font-size: 18px;
 }
 
 
@@ -611,17 +817,23 @@ select:focus {
    QUICK ADD
 ========================================== */
 
-.quick-grid {
+.quick-nutrition-grid {
     display: grid;
 
     grid-template-columns:
-        1.2fr
-        0.8fr
+        minmax(150px, 1.3fr)
+        minmax(90px, 0.8fr)
+        minmax(105px, 0.85fr)
+        minmax(95px, 0.8fr)
         auto;
 
     gap: 9px;
 
     align-items: center;
+}
+
+.quick-nutrition-grid .secondary-btn {
+    white-space: nowrap;
 }
 
 
@@ -636,6 +848,30 @@ select:focus {
     align-items: center;
 
     gap: 15px;
+}
+
+.today-nutrition-total {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+
+    flex-shrink: 0;
+}
+
+.today-nutrition-total strong {
+    color: #2786b4;
+
+    font-size: 13px;
+}
+
+.today-nutrition-total span {
+    color: var(--muted);
+
+    font-size: 10px;
 }
 
 .food-log {
@@ -687,6 +923,38 @@ select:focus {
     font-weight: 750;
 }
 
+
+/* ==========================================
+   FOOD ENTRY MACROS
+========================================== */
+
+.food-entry-nutrition {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap:
+        3px
+        8px;
+
+    text-align: right;
+}
+
+.food-entry-nutrition .food-entry-calories {
+    color: #2688b8;
+}
+
+.food-entry-protein,
+.food-entry-fiber {
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 650;
+}
+
 .delete-entry {
     width: 32px;
     height: 32px;
@@ -720,81 +988,6 @@ select:focus {
 
 
 /* ==========================================
-   WORKOUT
-========================================== */
-
-.workout-date {
-    margin:
-        -10px
-        0
-        18px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-.workout-title {
-    padding: 15px;
-
-    background: var(--sky-light);
-
-    border-radius: 14px;
-}
-
-.workout-title h3 {
-    margin: 0;
-}
-
-.workout-title p {
-    margin:
-        5px
-        0
-        0;
-}
-
-.workout-group {
-    margin-top: 18px;
-}
-
-.workout-group h4 {
-    margin:
-        0
-        0
-        8px;
-
-    color: #3288b4;
-}
-
-.workout-group ul {
-    margin: 0;
-
-    padding-left: 19px;
-
-    line-height: 1.75;
-
-    font-size: 14px;
-}
-
-.set-guide {
-    display: inline-block;
-
-    margin-top: 9px;
-
-    padding: 5px 9px;
-
-    background: #f1f9fd;
-
-    border-radius: 8px;
-
-    color: #698b9e;
-
-    font-size: 11px;
-    font-weight: 750;
-}
-
-
-/* ==========================================
    WEEK
 ========================================== */
 
@@ -809,8 +1002,8 @@ select:focus {
 
     grid-template-columns:
         42px
-        1fr
-        auto;
+        minmax(55px, 1fr)
+        minmax(0, auto);
 
     align-items: center;
 
@@ -843,9 +1036,57 @@ select:focus {
     font-size: 11px;
 }
 
-.week-calories {
-    font-size: 12px;
+
+/* ==========================================
+   WEEK DAILY NUTRITION
+========================================== */
+
+.week-nutrition {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap:
+        3px
+        10px;
+
+    text-align: right;
 }
+
+.week-calories,
+.week-protein,
+.week-fiber {
+    white-space: nowrap;
+}
+
+.week-calories {
+    color: var(--text);
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.week-protein {
+    color: #368f72;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.week-fiber {
+    color: #758f9d;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   WEEK CALORIE SUMMARY
+========================================== */
 
 .week-summary {
     display: grid;
@@ -880,6 +1121,55 @@ select:focus {
 
 .week-summary strong {
     font-size: 12px;
+}
+
+
+/* ==========================================
+   WEEK PROTEIN + FIBER SUMMARY
+========================================== */
+
+.macro-week-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.macro-week-summary > div {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    padding: 12px 14px;
+
+    border:
+        1px solid
+        #dceef6;
+
+    border-radius: 12px;
+
+    background: #f8fdff;
+}
+
+.macro-week-summary span {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.macro-week-summary strong {
+    color: #2f88b4;
+
+    font-size: 13px;
 }
 
 
@@ -928,97 +1218,6 @@ select:focus {
 }
 
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media (max-width: 1000px) {
-
-    .stats-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 850px) {
-
-    .main-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-
-@media (max-width: 650px) {
-
-    .app {
-        width: 92%;
-
-        padding-top: 25px;
-    }
-
-    .header {
-        align-items: flex-start;
-
-        flex-direction: column;
-    }
-
-    .header-actions {
-        width: 100%;
-    }
-
-    .week-badge {
-        flex: 1;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .input-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .quick-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .secondary-btn {
-        width: 100%;
-    }
-
-    .food-info {
-        grid-template-columns: 1fr;
-    }
-
-    .week-summary {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-
-@media (max-width: 430px) {
-
-    .header-actions {
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .food-entry {
-        grid-template-columns:
-            minmax(0, 1fr)
-            auto;
-    }
-
-    .delete-entry {
-        grid-column: 2;
-    }
-
-}
 /* ==========================================
    WEEK RESET
 ========================================== */
@@ -1091,6 +1290,8 @@ select:focus {
 
     font-size: 11px;
 }
+
+
 /* ==========================================
    WEIGHT
 ========================================== */
@@ -1121,7 +1322,8 @@ select:focus {
     right: 13px;
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     color: var(--muted);
 
@@ -1138,117 +1340,6 @@ select:focus {
 
     font-size: 11px;
 }
-/* ==========================================
-   WORKOUT SHOW / HIDE BUTTON
-========================================== */
-
-.workout-toggle-btn {
-    width: 100%;
-    margin-top: 16px;
-    margin-bottom: 16px;
-}
-
-#workoutContent:empty {
-    display: none;
-}
-/* ==========================================
-   TOP VIEW WORKOUT BUTTON
-========================================== */
-
-.top-header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 6px;
-}
-
-.top-header-row .eyebrow {
-    margin: 0;
-}
-
-.view-workout-btn {
-    flex-shrink: 0;
-
-    border: 1px solid #b8e2f5;
-    border-radius: 10px;
-
-    background: #ffffff;
-    color: #2798cf;
-
-    padding: 8px 12px;
-
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 750;
-
-    cursor: pointer;
-
-    transition:
-        background 0.15s ease,
-        border-color 0.15s ease,
-        transform 0.15s ease;
-}
-
-.view-workout-btn:hover {
-    background: #eef9ff;
-    border-color: #8fd3f1;
-    transform: translateY(-1px);
-}
-
-.view-workout-btn:active {
-    transform: translateY(0);
-}
-
-
-/* MOBILE */
-
-@media (max-width: 480px) {
-
-    .view-workout-btn {
-        padding: 7px 10px;
-        font-size: 10px;
-        border-radius: 9px;
-    }
-
-}
-/* ==========================================
-   HEADER WORKOUT BUTTON
-========================================== */
-
-.top-header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 6px;
-}
-
-.top-header-row .eyebrow {
-    margin: 0;
-}
-
-.view-workout-btn {
-    flex-shrink: 0;
-
-    padding: 8px 12px;
-
-    border: 1px solid #b9e4f7;
-    border-radius: 10px;
-
-    background: #ffffff;
-    color: #269bd3;
-
-    font: inherit;
-    font-size: 11px;
-    font-weight: 750;
-
-    cursor: pointer;
-}
-
-.view-workout-btn:hover {
-    background: #eef9ff;
-}
 
 
 /* ==========================================
@@ -1257,6 +1348,7 @@ select:focus {
 
 .workout-modal {
     position: fixed;
+
     inset: 0;
 
     z-index: 9999;
@@ -1278,11 +1370,19 @@ select:focus {
 
 .workout-modal-backdrop {
     position: absolute;
+
     inset: 0;
 
-    background: rgba(14, 32, 42, 0.55);
+    background:
+        rgba(
+            14,
+            32,
+            42,
+            0.55
+        );
 
-    backdrop-filter: blur(3px);
+    backdrop-filter:
+        blur(3px);
 }
 
 
@@ -1290,16 +1390,25 @@ select:focus {
 
 .workout-modal-box {
     position: relative;
+
     z-index: 1;
 
-    width: min(100%, 420px);
+    width:
+        min(
+            100%,
+            420px
+        );
+
     max-height: 85vh;
 
     overflow-y: auto;
 
     background: #ffffff;
 
-    border: 1px solid #d7edf7;
+    border:
+        1px solid
+        #d7edf7;
+
     border-radius: 20px;
 
     padding: 22px;
@@ -1309,11 +1418,13 @@ select:focus {
         rgba(0, 0, 0, 0.2);
 
     animation:
-        workoutPopup 0.2s ease;
+        workoutPopup
+        0.2s
+        ease;
 }
 
 
-/* HEADER */
+/* WORKOUT HEADER */
 
 .workout-modal-header {
     display: flex;
@@ -1335,6 +1446,7 @@ select:focus {
     font-weight: 800;
 
     text-transform: uppercase;
+
     letter-spacing: 0.08em;
 
     margin-bottom: 5px;
@@ -1347,7 +1459,10 @@ select:focus {
 }
 
 .workout-modal-header p {
-    margin: 5px 0 0;
+    margin:
+        5px
+        0
+        0;
 
     color: #78909c;
 
@@ -1355,7 +1470,7 @@ select:focus {
 }
 
 
-/* CLOSE BUTTON */
+/* WORKOUT CLOSE BUTTON */
 
 .workout-close-btn {
     width: 34px;
@@ -1364,12 +1479,15 @@ select:focus {
     flex-shrink: 0;
 
     border: 0;
+
     border-radius: 50%;
 
     background: #eef8fc;
+
     color: #4c7182;
 
     font-size: 23px;
+
     line-height: 1;
 
     cursor: pointer;
@@ -1384,11 +1502,23 @@ select:focus {
 
 .workout-modal-content {
     display: grid;
+
     gap: 14px;
 }
 
+.workout-title {
+    padding: 15px;
+
+    background: var(--sky-light);
+
+    border-radius: 14px;
+}
+
 .workout-title h3 {
-    margin: 0 0 10px;
+    margin:
+        0
+        0
+        10px;
 
     color: #17384a;
 
@@ -1404,25 +1534,33 @@ select:focus {
 .workout-group {
     padding: 16px;
 
-    border: 1px solid #dceef6;
+    border:
+        1px solid
+        #dceef6;
+
     border-radius: 14px;
 
     background: #f7fcff;
 }
 
 .workout-group h4 {
-    margin: 0 0 10px;
+    margin:
+        0
+        0
+        10px;
 
     color: #269bd3;
 
     font-size: 13px;
 
     text-transform: uppercase;
+
     letter-spacing: 0.05em;
 }
 
 .workout-group ul {
     margin: 0;
+
     padding-left: 20px;
 }
 
@@ -1435,6 +1573,8 @@ select:focus {
 }
 
 .set-guide {
+    display: inline-block;
+
     margin-top: 12px;
 
     padding: 8px 10px;
@@ -1442,6 +1582,7 @@ select:focus {
     border-radius: 8px;
 
     background: #e7f7ff;
+
     color: #268fc0;
 
     font-size: 11px;
@@ -1449,12 +1590,15 @@ select:focus {
 }
 
 
-/* POPUP ANIMATION */
+/* ==========================================
+   WORKOUT POPUP ANIMATION
+========================================== */
 
 @keyframes workoutPopup {
 
     from {
         opacity: 0;
+
         transform:
             translateY(10px)
             scale(0.97);
@@ -1462,6 +1606,7 @@ select:focus {
 
     to {
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
@@ -1470,13 +1615,136 @@ select:focus {
 }
 
 
-/* PHONE */
+/* ==========================================
+   RESPONSIVE — TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .main-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE — SMALL TABLET / PHONE
+========================================== */
+
+@media (max-width: 650px) {
+
+    .app {
+        width: 92%;
+
+        padding-top: 25px;
+    }
+
+
+    .header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .header-actions {
+        width: 100%;
+    }
+
+
+    .week-badge {
+        flex: 1;
+    }
+
+
+    .stats-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .food-info {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .nutrition-input-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .nutrition-name-field {
+        grid-column: auto;
+    }
+
+
+    .quick-nutrition-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .quick-nutrition-grid #quickFoodName {
+        grid-column:
+            1 / -1;
+    }
+
+
+    .quick-nutrition-grid .secondary-btn {
+        grid-column:
+            1 / -1;
+
+        width: 100%;
+    }
+
+
+    .week-summary {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .nutrition-result-values {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE — PHONE
+========================================== */
 
 @media (max-width: 480px) {
+
+    .view-workout-btn {
+        padding: 7px 10px;
+
+        font-size: 10px;
+
+        border-radius: 9px;
+    }
+
 
     .workout-modal {
         padding: 14px;
     }
+
 
     .workout-modal-box {
         width: 100%;
@@ -1488,10 +1756,162 @@ select:focus {
         border-radius: 18px;
     }
 
-    .view-workout-btn {
-        padding: 7px 10px;
 
-        font-size: 10px;
+    .week-row {
+        grid-template-columns:
+            36px
+            54px
+            minmax(0, 1fr);
+
+        gap: 6px;
+    }
+
+
+    .week-nutrition {
+        gap:
+            2px
+            7px;
+    }
+
+
+    .week-calories {
+        font-size: 11px;
+    }
+
+
+    .week-protein,
+    .week-fiber {
+        font-size: 9px;
+    }
+
+
+    .week-summary {
+        gap: 6px;
+
+        padding: 12px 10px;
+    }
+
+
+    .week-summary span {
+        font-size: 9px;
+    }
+
+
+    .week-summary strong {
+        font-size: 11px;
+    }
+
+
+    .macro-week-summary {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 7px;
+    }
+
+
+    .macro-week-summary > div {
+        padding: 10px;
+    }
+
+
+    .log-header {
+        align-items: flex-start;
+    }
+
+
+    .food-entry {
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+    }
+
+
+    .food-entry-nutrition {
+        max-width: 115px;
+
+        flex-direction: column;
+
+        align-items: flex-end;
+
+        gap: 1px;
+    }
+
+
+    .delete-entry {
+        grid-column: 2;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE — VERY SMALL PHONE
+========================================== */
+
+@media (max-width: 390px) {
+
+    .header-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .nutrition-result-values {
+        grid-template-columns:
+            1fr;
+
+        gap: 7px;
+    }
+
+
+    .nutrition-result-values strong {
+        flex-direction: row;
+
+        align-items: baseline;
+
+        gap: 3px;
+    }
+
+
+    .nutrition-result-values strong span {
+        font-size: 15px;
+    }
+
+
+    .quick-nutrition-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .quick-nutrition-grid #quickFoodName,
+    .quick-nutrition-grid .secondary-btn {
+        grid-column: auto;
+    }
+
+
+    .food-info {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .week-row {
+        grid-template-columns:
+            34px
+            50px
+            minmax(0, 1fr);
+    }
+
+
+    .week-nutrition {
+        flex-direction: column;
+
+        align-items: flex-end;
+
+        gap: 1px;
     }
 
 }
